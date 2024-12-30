@@ -193,6 +193,8 @@ console.log(ages);
 
 // ---------- Basic Arrays Methods -------------
 
+/*
+
 // ADD ELEMENTS
 
 //----PUSH
@@ -239,3 +241,127 @@ console.log(friends.includes("Steven"));
 console.log(friends.includes("Bob"));
 console.log(friends.includes("23"));
 console.log(friends.includes(23));
+
+*/
+
+// ---------- Introduction to Objects -------------
+
+/*
+
+const jonasArray = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+];
+
+const jonas = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  age: 2037 - 1991,
+  job: "Teacher",
+  friends: ["Michael", "Peter", "Steven"],
+};
+
+*/
+
+// ---------- Dot vs Bracket Notation -------------
+
+/*
+
+const jonas = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  age: 2037 - 1991,
+  job: "Teacher",
+  friends: ["Michael", "Peter", "Steven"],
+};
+console.log(jonas);
+console.log(jonas.lastName); // Dot Notation
+console.log(jonas["lastName"]); // Bracket Notation
+
+// We can put any expression in Bracket Notation.
+const nameKey = "Name";
+console.log(jonas["first" + nameKey]);
+console.log(jonas["last" + nameKey]);
+
+const interestedIn = prompt(
+  "What do you wnat to know about jonas,Choose between firstName,lastName,age,job,friends"
+);
+// Cause Error becouse there is no interestedIn property in jonas
+// console.log(jonas.interestedIn);
+
+// Use Bracket Notation to access the value.
+// console.log(jonas[interestedIn]);
+
+if (jonas[interestedIn]) {
+  console.log(jonas[interestedIn]);
+} else {
+  console.log(
+    "Wrong Request⚠️ Choose between firstName,lastName,age,job,friends"
+  );
+}
+
+jonas.location = "Protugal";
+jonas["twitter"] = "@jonasSchmedtmann";
+console.log(jonas);
+
+// Challenge
+// "Jonas has 3 friends(friends name) and his best friend is Michael";
+
+console.log(
+  `${jonas.firstName} has ${jonas.friends.length} friends (${jonas.friends}) and his best friend is ${jonas.friends[0]}.`
+);
+
+*/
+
+// ---------- Object Methods -------------
+
+/*
+
+const jonas = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  birthYear: 1991,
+  job: "Teacher",
+  friends: ["Michael", "Peter", "Steven"],
+  hasDriversLicense: true,
+
+  // calcAge: function (bornyr) {
+  //   return 2037 - bornyr;
+  // },
+
+  // calcAge: function () {
+  //   console.log(this);
+  //   return 2037 - this.birthYear;
+  // },
+
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    this.summary = `${this.firstName} is a ${this.calcAge()}-year old ${
+      this.job
+    }, and he has ${this.hasDriversLicense ? "a" : "no"} driver's License.`;
+
+    return this.summary;
+  },
+};
+
+console.log(jonas.calcAge());
+// console.log(jonas["calcAge"](1991));
+
+console.log(jonas.age);
+console.log(jonas.age);
+console.log(jonas.age);
+
+console.log(jonas.getSummary());
+console.log(jonas.summary);
+
+// Challenge
+// Jonas is a 46-year old teacher, and he has a/no driver's License.
+
+*/

@@ -72,3 +72,66 @@ const percentages = [
 ];
 
 console.log(percentages);
+
+// ---------- Basic Arrays Operation
+
+const neighbours = ["Pakistan", "Sri Lanka", "China", "Nepal"];
+console.log(neighbours);
+
+neighbours.push("Utophia");
+console.log(neighbours);
+
+neighbours.pop();
+console.log(neighbours);
+
+console.log(
+  neighbours.includes("Germany")
+    ? " It is an European country ✅"
+    : "Probably not a central European country ❌"
+);
+console.log(neighbours.includes("Nepal"));
+
+neighbours[neighbours.indexOf("China")] = "Republic of China";
+console.log(neighbours);
+
+// ---------- Introduction to Objects
+
+const myCountry = {
+  country: "India",
+  capital: "New Delhi",
+  language: "Tamil",
+  population: 14,
+  neighbours: ["Pakistan", "China", "Sri Lanka", "Nepal", "China"],
+
+  describe: function () {
+    return `${this.country} has ${this.population} ${
+      (this, this.language)
+    } speaking people, ${
+      this.neighbours.length
+    } neighbouring countries and a capital called ${this.capital}.`;
+  },
+
+  checkIsland: function () {
+    this.isIsland = this.neighbours.length === 0 ? true : false;
+    return this.isIsland;
+  },
+};
+console.log(myCountry);
+
+// ---------- Dot vs Bracket Notation
+
+console.log(
+  `${myCountry.country} has ${myCountry.population} ${myCountry.language} speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`
+);
+
+myCountry.population += 2;
+console.log(myCountry.population);
+
+myCountry["population"] -= 2;
+console.log(myCountry.population);
+
+// ---------- Object Methods
+console.log(myCountry.describe());
+
+console.log(myCountry.checkIsland());
+console.log(myCountry.isIsland);
