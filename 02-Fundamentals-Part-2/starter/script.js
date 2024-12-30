@@ -365,3 +365,71 @@ console.log(jonas.summary);
 // Jonas is a 46-year old teacher, and he has a/no driver's License.
 
 */
+
+// ---------- For Loop -------------
+/*
+
+// for loop keeps running while condition is TRUE
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weight repitation ${rep} 🏋️‍♂️`);
+}
+  
+*/
+
+// ---------- Looping Array, Breaking, Continue -------------
+
+const jonasArray = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+  true,
+];
+
+const types = [];
+
+for (let i = 0; i < jonasArray.length; i++) {
+  // Reading from jonasArray
+  console.log(jonasArray[i], typeof jonasArray[i]);
+
+  // Filling types array
+  // types[i] = typeof jonasArray[i];
+  types.push(typeof jonasArray[i]);
+}
+
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2037 - years[i]);
+}
+
+console.log(ages);
+
+// Continue and Break
+// Continue - To exit the current iteration of the loop.
+// Break - To completly terminate the entire loop.
+
+console.log("---ONLY STRINGS---");
+
+for (let i = 0; i < jonasArray.length; i++) {
+  if (typeof jonasArray[i] !== "string") {
+    continue;
+  }
+
+  // Only print the string data types.
+  console.log(jonasArray[i], typeof jonasArray[i]);
+}
+
+console.log("---BREAK WITH NUMBERS---");
+
+for (let i = 0; i < jonasArray.length; i++) {
+  if (typeof jonasArray[i] === "number") {
+    break;
+  }
+
+  console.log(jonasArray[i], typeof jonasArray[i]);
+}
