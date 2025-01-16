@@ -97,7 +97,7 @@ console.log(z === window.z);
 // Global
 console.log(this);
 
-// Function declaration
+// Function Expression
 const calcAge = function (birthYear) {
   console.log(2037 - birthYear);
   console.log(this);
