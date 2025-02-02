@@ -94,6 +94,7 @@ console.log(z === window.z);
 */
 
 // ----------- THIS Keyword ------------
+/*
 // Global
 console.log(this);
 
@@ -133,3 +134,22 @@ matilda.calcAge();
 
 const f = jonas.calcAge;
 f();
+*/
+
+// ----------- Regular Function Vs Arrow Function ------------
+
+const jonas = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+  },
+
+  // greet: () => console.log(`Hey ${this.firstName}`),
+  greet: function () {
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+
+jonas.greet();
