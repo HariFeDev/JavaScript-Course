@@ -137,6 +137,9 @@ f();
 */
 
 // ----------- Regular Function Vs Arrow Function ------------
+/*
+
+// var firstName = 'Matilda';
 
 const jonas = {
   firstName: 'Jonas',
@@ -144,12 +147,124 @@ const jonas = {
   calcAge: function () {
     console.log(this);
     console.log(2037 - this.year);
+
+    // SOLUTION 1
+    //   const self = this;
+    //   const isMillenial = function () {
+    //     console.log(self);
+    //     console.log(self.year >= 1981 && self.year <= 1996);
+    //     // console.log(this.year >= 1981 && this.year <= 1996);
+    //   };
+    //   isMillenial();
+    // },
+
+    // SOLUTION 2
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
   },
 
-  // greet: () => console.log(`Hey ${this.firstName}`),
-  greet: function () {
+  greet: () => {
+    console.log(this);
     console.log(`Hey ${this.firstName}`);
   },
+  // greet: function () {
+  //   console.log(`Hey ${this.firstName}`);
+  // },
 };
 
 jonas.greet();
+jonas.calcAge();
+
+// Function Expression
+const f1 = function () {
+  console.log(this);
+};
+f1();
+
+// Function Declaration
+function f2() {
+  console.log(this);
+}
+f2();
+
+// Arrow Function
+const f3 = () => {
+  console.log(this);
+};
+f3();
+
+// arguments Keyword in Regular Function
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+// // arguments Keyword in Arrow Function
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow(2, 5, 8); 
+
+*/
+
+// ----------- Primitive Vs Objects (PRIMITIVE Vs REFERENCE TYPES) ------------
+/*
+
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me = {
+  name: 'Jonas',
+  age: 30,
+};
+const friend = me;
+friend.age = 27;
+console.log('Friend', friend);
+console.log('Me', me);
+
+// Primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+// Reference types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before Marriage:', jessica);
+console.log('After Marriage:', marriedJessica);
+
+// marriedJessica = {};
+*/
+
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before Marriage:', jessica2);
+console.log('After Marriage:', jessicaCopy);
