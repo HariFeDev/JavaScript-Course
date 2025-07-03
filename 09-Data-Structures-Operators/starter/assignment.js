@@ -46,6 +46,8 @@ const {
 } = student;
 console.log(`Mark Math : ${math}`);
 
+// ----------- Spread and Rest Operators
+
 // Nested Array Destructuring + Rest
 const numbers = [1, 2, [3, 4, 5], 6, 7];
 
@@ -157,3 +159,59 @@ const sumFirstAndRest = function ([a, b, ...rest]) {
   console.log(a + b, rest);
 };
 sumFirstAndRest([2, 3, 4, 5]);
+
+// ----------- Short Circuiting AND OR Operators
+
+// OR Practice
+console.log(0 || 'Hello'); //'Hello'
+console.log('' || 'Default'); //'Default
+console.log(null || undefined || 5); //5
+console.log(false || 0 || NaN || 'Yes' || null); //"Yes"
+
+// AND Practice
+console.log('Hi' && 0); //0
+console.log(5 && 'World'); //"World"
+console.log(true && 'JS' && 23); //23
+console.log(null && 'Hello'); //null
+
+// Function Short-circuiting
+function greet(name) {
+  const finalName = name || 'Guest';
+  console.log('Hello, ' + finalName);
+}
+
+greet('Hari'); //'Hari'
+greet(''); //"Guest"
+greet(undefined); //"Guest"
+
+// Conditional Execution
+const isLoggedIn = true;
+isLoggedIn && console.log('Welcome back!'); //"welcome back!"
+
+// Default Values in Objects
+const user1 = {
+  name: '',
+  age: 0,
+  city: 'Mumbai',
+};
+
+const userName = user1.name || 'Anonymous';
+const userAge = user1.age || 18;
+const userCity = user1.city || 'Unknown';
+
+console.log(userName, userAge, userCity); //"Anonymous", 18, "Mumbai"
+
+// Build a Small Program
+/*
+You check whether a variable contains a value, and if not, assign it a default.
+
+You log a welcome message only if the user is logged in.
+*/
+let username = '';
+
+username = username || 'Guest';
+
+// const loggedIn = false;
+const loggedIn = true;
+
+loggedIn && console.log('Welcome, ' + username);

@@ -73,6 +73,15 @@ console.log('----- AND -----');
 console.log(0 && 'Jonas');
 console.log(7 && 'Jonas');
 
+console.log('Hello' && 23 && null && undefined && 'Jonas');
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('Mushroom', 'veggies');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('Panner', 'BabyCorn');
+
 // ----------- Rest Pattern and Parameters ------------
 /*
 
