@@ -52,7 +52,29 @@ const restaurant = {
   },
 };
 
+// ----------- Short Circuting (&& ||) AND OR Operator ------------
+console.log('----- OR -----');
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+restaurant.numGuests = 23;
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('----- AND -----');
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
 // ----------- Rest Pattern and Parameters ------------
+/*
 
 // Destructuring
 // SPREAD, because on RIGHT side of =
@@ -93,6 +115,8 @@ add(...x);
 
 restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
 // restaurant.orderPizza('veggies');
+
+*/
 
 // ----------- Spread Opreator ------------
 /*
