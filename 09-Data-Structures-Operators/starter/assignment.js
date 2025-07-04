@@ -215,3 +215,30 @@ username = username || 'Guest';
 const loggedIn = true;
 
 loggedIn && console.log('Welcome, ' + username);
+
+// User Info Formatter
+
+const userDetails = {
+  name: 'Alice',
+  age: 25,
+  hobbies: ['reading', 'swimming', 'gaming'],
+  contact: {
+    email: 'alice@example.com',
+  },
+};
+
+const formatUser = function (user) {
+  const { name, age } = user;
+
+  const [primaryHobby, ...otherHobbies] = user.hobbies;
+
+  const { email = 'no-email@example.com' } = user.contact;
+
+  console.log(user.contact.email ?? email);
+
+  console.log(
+    `${name} (${age}) - Primary Hobby: ${primaryHobby}, other Hobbies: ${otherHobbies} Email: ${email}`
+  );
+};
+
+formatUser(userDetails);
