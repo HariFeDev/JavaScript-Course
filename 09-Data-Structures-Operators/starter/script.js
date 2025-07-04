@@ -52,10 +52,22 @@ const restaurant = {
   },
 };
 
+// ----------- Nullish Coalescing Operator ------------
+
+restaurant.numGuests = 0;
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// Nullish : null and undefined (NOT 0 or '')
+const guesCorrect = restaurant.numGuests ?? 10;
+console.log(guesCorrect);
+
 // ----------- Short Circuting (&& ||) AND OR Operator ------------
+/*
 console.log('----- OR -----');
 console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
+console.log('' || 'Jonas'); 
 console.log(true || 0);
 console.log(undefined || null);
 
@@ -81,6 +93,8 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza('Panner', 'BabyCorn');
+
+*/
 
 // ----------- Rest Pattern and Parameters ------------
 /*
