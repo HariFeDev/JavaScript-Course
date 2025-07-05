@@ -52,7 +52,20 @@ const restaurant = {
   },
 };
 
+// ----------- For of Loop ------------
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const item of menu.entries()) {
+  console.log(`${item[0] + 1}: ${item[1]}`);
+}
+
 // ----------- Nullish Coalescing Operator ------------
+/*
 
 restaurant.numGuests = 0;
 
@@ -62,6 +75,8 @@ console.log(guests2);
 // Nullish : null and undefined (NOT 0 or '')
 const guesCorrect = restaurant.numGuests ?? 10;
 console.log(guesCorrect);
+
+*/
 
 // ----------- Short Circuting (&& ||) AND OR Operator ------------
 /*
