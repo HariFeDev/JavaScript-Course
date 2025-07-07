@@ -57,7 +57,25 @@ const restaurant = {
   },
 };
 
-// ----------- Enhanced Object Literals ------------
+// ----------- Optional Chaining ------------
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+}
+
+// console.log(restaurant.openingHours.mon.open);
+
+// WITH Optional Chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+// Examples
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'Closed';
+  console.log(`On the ${day} we open at ${open}`);
+}
 
 // ----------- For of Loop ------------
 /*
