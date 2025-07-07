@@ -242,3 +242,25 @@ const formatUser = function (user) {
 };
 
 formatUser(userDetails);
+
+// ----------- For of Loop
+
+// Sum Positive Numbers
+const newNumbers = [3, -7, 4, -2, 10, -5];
+let sum = 0;
+
+for (const num of newNumbers) {
+  if (num > 0) {
+    sum += num;
+  }
+}
+console.log(sum);
+
+// Capitalize Words
+const words = ['hello', 'world', 'javascript', 'rocks'];
+
+const upperCaseArray = [];
+for (const word of words) {
+  upperCaseArray.push(word.toUpperCase());
+}
+console.log(upperCaseArray);
