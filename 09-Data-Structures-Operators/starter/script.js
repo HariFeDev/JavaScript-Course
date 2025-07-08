@@ -57,7 +57,18 @@ const restaurant = {
   },
 };
 
-// ----------- Optional Chaining ------------
+//
+
+// ----------- Looping Objects, Object Keys, Values and Entries ------------
+
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+for (const day of properties) {
+  console.log(day);
+}
+
+/*
 if (restaurant.openingHours && restaurant.openingHours.mon) {
   console.log(restaurant.openingHours.mon.open);
 }
@@ -90,6 +101,8 @@ const users = [
 ];
 
 console.log(users[0]?.name ?? 'Users Array is empty');
+
+*/
 
 // ----------- For of Loop ------------
 /*
