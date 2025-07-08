@@ -264,3 +264,60 @@ for (const word of words) {
   upperCaseArray.push(word.toUpperCase());
 }
 console.log(upperCaseArray);
+
+// ----------- Optional Chaining
+
+/*
+Safe Access to Nested Properties
+
+You have a list of users. Some users have a profile, and some don't. Get each user's display name or use "Anonymous" if it's missing.
+
+*/
+
+const users = [
+  { id: 1, profile: { displayName: 'Alice' } },
+  { id: 2 },
+  { id: 3, profile: { displayName: null } },
+];
+
+for (const user of users) {
+  // Your code here
+  console.log(user['profile']?.displayName ?? 'Anonymous');
+}
+
+/*
+Safe Function Call with Fallback
+
+You have an object which may or may not contain a method to print a greeting. Call the method if it exists. If it doesn’t, print "No greeting available".
+
+*/
+const person2 = {
+  greet: () => 'Hello!',
+};
+
+const person3 = {};
+
+function greetPerson(person) {
+  // Your code here
+  console.log(person.greet?.() ?? 'NO greeting available');
+}
+
+greetPerson(person2); // "Hello!"
+greetPerson(person3); // "No greeting available"
+
+/*
+Get Cart Total 
+
+You are given a shopping cart object. Some users haven’t added a cart, or the total could be null. Print the cart total or default to 0.
+*/
+
+const user3 = [
+  { name: 'John', cart: { total: 250 } },
+  { name: 'Jane' },
+  { name: 'Tom', cart: { total: null } },
+];
+
+for (const user of user3) {
+  // Your code here
+  console.log(`${user.name}'s total: ${user.cart?.total ?? 0}`);
+}
