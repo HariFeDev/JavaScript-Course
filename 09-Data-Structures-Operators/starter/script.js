@@ -61,12 +61,16 @@ const restaurant = {
 
 // ----------- Looping Objects, Object Keys, Values and Entries ------------
 
+// Property Names
 const properties = Object.keys(openingHours);
 console.log(properties);
 
+let openStr = `We are open on ${properties.length} days:`;
+
 for (const day of properties) {
-  console.log(day);
+  openStr += `${day}, `;
 }
+console.log(openStr);
 
 /*
 if (restaurant.openingHours && restaurant.openingHours.mon) {
