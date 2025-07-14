@@ -321,3 +321,47 @@ for (const user of user3) {
   // Your code here
   console.log(`${user.name}'s total: ${user.cart?.total ?? 0}`);
 }
+
+// ----------- Sets Challenges
+
+// Remove Duplicates
+const numbersArr = [2, 3, 4, 3, 5, 2, 6, 4];
+console.log(new Set(numbersArr));
+
+// Check Presence
+const fruitsSets = new Set(['apple', 'banana', 'mango']);
+console.log(fruitsSets.has('banana'));
+
+// Size of Sets
+const letters = new Set(['a', 'b', 'c', 'a', 'b']);
+console.log(letters.size);
+
+// Convert Set → Array
+const colors = new Set(['red', 'green', 'blue']);
+console.log([...colors]);
+
+// Loop through Set
+const animals = new Set(['lion', 'tiger', 'bear']);
+
+for (const animal of animals) {
+  console.log(animal);
+}
+
+// Delete from Set
+const cities = new Set(['New York', 'Paris', 'Tokyo']);
+console.log(cities);
+cities.delete('Paris');
+console.log(cities);
+
+//  Clear a Set
+const names = new Set(['Alice', 'Bob', 'Charlie']);
+console.log(names);
+names.clear();
+console.log(names);
+
+// Union of Two Sets
+const setA = new Set([1, 2, 3]);
+const setB = new Set([3, 4, 5]);
+
+const union = new Set([...setA, ...setB]);
+console.log(union);
