@@ -57,8 +57,23 @@ const restaurant = {
   },
 };
 
-// ----------- Sets ------------
+// ----------- Maps ------------
 
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+rest.set(2, 'Libzon, Portugal');
+console.log(rest.set(2, 'Libzon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23);
+
+console.log(rest);
+
+// ----------- Sets ------------
+/*
 const orderedSet = new Set([
   'Pasta',
   'Pizza',
@@ -107,6 +122,7 @@ console.log(
 );
 
 console.log(new Set('JonasSchedmann').size);
+*/
 
 // ----------- Looping Objects, Object Keys, Values and Entries ------------
 
