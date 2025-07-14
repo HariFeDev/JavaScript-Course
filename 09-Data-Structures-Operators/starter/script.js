@@ -57,9 +57,36 @@ const restaurant = {
   },
 };
 
-//
+// ----------- Sets ------------
+
+const orderedSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Rosotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(orderedSet);
+
+console.log(new Set('Jonas', 'hari'));
+console.log(new Set(['Jonas', 'hari']));
+
+console.log(orderedSet.size);
+
+// To check an element
+console.log(orderedSet.has('Pizza'));
+console.log(orderedSet.has('Bread'));
+
+// To add an element
+orderedSet.add('Garlic Bread');
+orderedSet.add('Garlic Bread');
+console.log(orderedSet);
 
 // ----------- Looping Objects, Object Keys, Values and Entries ------------
+
+/*
 
 // Property Names
 const properties = Object.keys(openingHours);
@@ -87,6 +114,8 @@ for (const y of entries) {
 for (const [day, { open, close }] of entries) {
   console.log(`On ${day} Open at ${open} and Close at ${close}`);
 }
+
+*/
 
 /*
 if (restaurant.openingHours && restaurant.openingHours.mon) {
