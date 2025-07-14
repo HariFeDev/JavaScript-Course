@@ -84,6 +84,30 @@ orderedSet.add('Garlic Bread');
 orderedSet.add('Garlic Bread');
 console.log(orderedSet);
 
+// To delete an element
+orderedSet.delete('Rosotto');
+console.log(orderedSet);
+
+// To empty the sets
+// orderedSet.clear();
+console.log(orderedSet);
+
+// To iterate an elements
+for (const order of orderedSet) {
+  console.log(order);
+}
+
+// Example
+const staff = ['waiter', 'chef', 'waiter', 'Manager', 'chef', 'waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(
+  new Set(['waiter', 'chef', 'waiter', 'Manager', 'chef', 'waiter']).size
+);
+
+console.log(new Set('JonasSchedmann').size);
+
 // ----------- Looping Objects, Object Keys, Values and Entries ------------
 
 /*
