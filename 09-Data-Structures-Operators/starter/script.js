@@ -68,9 +68,16 @@ console.log(rest.set(2, 'Libzon, Portugal'));
 rest
   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
   .set('open', 11)
-  .set('close', 23);
+  .set('close', 23)
+  .set(true, 'we are open 📬')
+  .set(false, 'we are closed 📫');
 
 console.log(rest);
+console.log(typeof rest);
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
 
 // ----------- Sets ------------
 /*
