@@ -60,13 +60,13 @@ const restaurant = {
 // ----------- Maps Iteration------------
 // Another way of creating a new map
 const question = new Map([
-  ['question', 'What is the best programming leanguage in the world?'],
+  ['question', 'What is the best programming language in the world?'],
   [1, 'C'],
   [2, 'Java'],
   [3, 'JavaScript'],
   ['correct', 3],
   [true, 'Correct Answer🎉'],
-  [false, 'Try Again'],
+  [false, 'Try Again!'],
 ]);
 console.log(question);
 
@@ -75,6 +75,23 @@ console.log(Object.entries(openingHours));
 
 const hoursMap = new Map(Object.entries(openingHours));
 console.log(hoursMap);
+
+// Quiz App
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') {
+    console.log(`Answer ${key}: ${value}`);
+  }
+}
+
+// const answer = Number(prompt('Tell your answer'));
+const answer = 3;
+console.log(question.get(answer === question.get('correct')));
+
+// Convert map to array
+console.log([...question]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
 
 // ----------- Maps Fundamentals------------
 
