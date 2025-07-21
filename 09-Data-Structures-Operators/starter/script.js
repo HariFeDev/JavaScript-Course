@@ -57,7 +57,28 @@ const restaurant = {
   },
 };
 
-// ----------- Maps ------------
+// ----------- Maps Iteration------------
+// Another way of creating a new map
+const question = new Map([
+  ['question', 'What is the best programming leanguage in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct Answer🎉'],
+  [false, 'Try Again'],
+]);
+console.log(question);
+
+// Convert object to Maps
+console.log(Object.entries(openingHours));
+
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+// ----------- Maps Fundamentals------------
+
+/*
 
 const rest = new Map();
 rest.set('name', 'Classico Italiano');
@@ -92,6 +113,8 @@ console.log(rest);
 console.log(rest.size);
 
 console.log(rest.get(arr));
+
+*/
 
 // ----------- Sets ------------
 /*
