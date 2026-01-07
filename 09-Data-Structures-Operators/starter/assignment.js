@@ -160,6 +160,151 @@ const sumFirstAndRest = function ([a, b, ...rest]) {
 };
 sumFirstAndRest([2, 3, 4, 5]);
 
+// ----------- Destructuring Arrays, Objects, Spread Operator, Rest Pattern and For-of-Loop combined challenges
+// Challenge 1: User Profile Extractor
+const user2 = {
+  id: 101,
+  name: "Hari",
+  address: {
+    city: "Chennai",
+    state: "Tamil Nadu",
+    pincode: 600001,
+  },
+  skills: ["HTML", "CSS", "JavaScript"],
+};
+
+const getUserSummary = function (user) {
+  const { name, address: { city }, address: { state } } = user;
+  return `${name} lives in ${city}, ${state}`
+}
+
+console.log(getUserSummary(user2));
+
+// Challenge 2: Array Values Swap
+const coordinates = [12.9716, 77.5946];
+
+const swapCoordinates = function (coords) {
+  let [a, b] = coords;
+  [b, a] = [a, b];
+  return [a, b];
+}
+
+console.log(swapCoordinates(coordinates))
+
+// Challenge 3: Restaurant Order System
+const restaurant = {
+  name: "Spicy Dosa",
+  menu: {
+    breakfast: ["Idli", "Plain Dosa", "Puri Dosa"],
+    lunch: ["Meals", "Sambar Rice"],
+  },
+  timings: {
+    open: "7 AM",
+    close: "10 PM",
+  },
+};
+
+const getBreakfastItems = function (res) {
+  const { menu: { breakfast: [mainItem, ...otherItems] } } = res;
+  return { mainItem, otherItems }
+}
+
+console.log(getBreakfastItems(restaurant));
+
+// Challenge 4: Student Marks Analyzer
+const student1 = {
+  name: "Arjun",
+  marks: [85, 90, 78, 92, 88],
+};
+
+const analyzeMarks = function (student) {
+  const { marks: [first, second, ...others] } = student;
+  return { first, second, others }
+}
+
+console.log(analyzeMarks(student1));
+
+// Challenge 5: Company Employee Processor
+const company = {
+  name: "Tech Corp",
+  employees: [
+    {
+      id: 1,
+      personal: {
+        name: "Hari",
+        age: 24,
+      },
+      skills: ["JavaScript", "React", "SAPUI5"],
+    },
+    {
+      id: 2,
+      personal: {
+        name: "Ravi",
+        age: 26,
+      },
+      skills: ["Python", "Django"],
+    },
+  ],
+};
+
+/*
+[
+  { name: "Hari", mainSkill: "JavaScript", otherSkills: ["React", "SAPUI5"] },
+  { name: "Ravi", mainSkill: "Python", otherSkills: ["Django"] }
+]
+
+*/
+
+const getEmployeeSkills = function (company) {
+  const result = [];
+  const { employees } = company;
+  for (const emp of employees) {
+    const { personal: { name }, skills: [mainSkill, ...otherSkills], } = emp;
+    result.push({ name, mainSkill, otherSkills });
+  }
+  return result;
+}
+
+console.log(getEmployeeSkills(company));
+
+// Challenge 6: Course Enrollment Processor
+const courses = {
+  platform: "Udemy",
+  data: [
+    {
+      title: "JavaScript",
+      instructor: {
+        name: "Jonas",
+        experience: 10,
+      },
+      students: ["Hari", "Ravi", "Arjun"],
+    },
+    {
+      title: "CSS",
+      instructor: {
+        name: "Sarah",
+        experience: 7,
+      },
+      students: ["Kumar", "Deepak"],
+    },
+  ],
+};
+
+const processCourses = function (courses) {
+  const udemyCourse = [];
+  const { data } = courses;
+  for (const details of data) {
+    const { title: course, instructor: { name: instructor }, students: [mainStudent, ...otherStudents] } = details;
+    udemyCourse.push({ course, instructor, mainStudent, otherStudents })
+  }
+  return udemyCourse;
+}
+
+console.log(processCourses(courses));
+
+
+
+
 // ----------- Short Circuiting AND OR Operators
 
 // OR Practice
