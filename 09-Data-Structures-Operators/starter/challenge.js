@@ -83,34 +83,50 @@ const game = {
   },
 };
 
-const [player1, player2] = game.players;
-console.log(player1);
-console.log(player2);
+// SOLUTION
+// 1
+const { players: [players1, players2] } = game;
+console.log(players1);
+console.log(players2);
 
-const [gk, ...fieldPlayers] = player1;
-console.log(gk);
-console.log(fieldPlayers);
+// 2
+const [gk, ...fieldPlayers] = players1
+console.log(gk, fieldPlayers);
 
-const allPlayers = [...player1, ...player2];
+// 3
+const [...allPlayers] = [...players1, ...players2];
 console.log(allPlayers);
 
-const players1Final = [...player1, 'Thiago', 'Coutinho', 'Perisic'];
+// 4
+const [...players1Final] = [...players1, "Thiago", "Coutinho", "Perisic"]
 console.log(players1Final);
 
-const { team1, x: draw, team2 } = game.odds;
-console.log(team1);
-console.log(draw);
-console.log(team2);
+// 5
+const { odds: { team1, x: draw, team2 } } = game;
+console.log(team1, draw, team2);
+
+// 6
+const { scored: [...playerScore] } = game;
+console.log(playerScore);
+console.log(...playerScore);
+
 
 const printGoals = function (...players) {
-  console.log(players);
-  console.log(`${players.length} goals were scored`);
-};
+  let goal = 0;
+  for (let i = 0; i < players.length; i++) {
+    console.log(players[i]);
+    goal = i + 1;
+  }
+  console.log(`Total goals: ${goal}`);
+}
 
-printGoals(...game.scored);
+printGoals(...playerScore);
 
-team1 < team2 && console.log('Team 1 is more likely to win');
-team1 > team2 && console.log('Team 2 is more likely to win');
+// 7
+const { odds: { team1: t1, team2: t2 }, team1: team1Name, team2: team2Name } = game;
+
+t1 < t2 && console.log(team1Name);
+t2 < t1 && console.log(team2Name);
 
 /*
 Coding Challenge #2
