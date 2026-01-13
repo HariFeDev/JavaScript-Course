@@ -389,6 +389,46 @@ const formatUser = function (user) {
 formatUser(userDetails);
 
 // ----------- For of Loop
+const orders = [
+  {
+    orderId: 1,
+    customer: { name: "Hari", city: "Chennai" },
+    items: [
+      { product: "Laptop", price: 50000 },
+      { product: "Mouse", price: 500 },
+    ],
+  },
+  {
+    orderId: 2,
+    customer: { name: "Arjun", city: "Bangalore" },
+    items: [
+      { product: "Phone", price: 30000 },
+      { product: "Headphones", price: 2000 },
+    ],
+  },
+];
+
+// SOLUTION
+const processOrders = function (orders) {
+  const result = [];
+  for (const a of orders) {
+    console.log(a)
+    const { customer: { name: customerName, city }, items } = a
+    console.log({ customerName, city }, items);
+
+    let totalAmount = 0;
+    for (const b of items) {
+      console.log(b);
+      const { price } = b
+      totalAmount += price
+    }
+    result.push({ customerName, city, totalAmount });
+    console.log(totalAmount);
+    console.log(result);
+  }
+  return result
+}
+console.log(processOrders(orders));
 
 // Sum Positive Numbers
 const newNumbers = [3, -7, 4, -2, 10, -5];
@@ -510,3 +550,7 @@ const setB = new Set([3, 4, 5]);
 
 const union = new Set([...setA, ...setB]);
 console.log(union);
+
+
+
+
