@@ -450,6 +450,43 @@ for (const word of words) {
 }
 console.log(upperCaseArray);
 
+// ----------- Enhanced Object Literal
+// Challenge #1
+const user_name = "Hari";
+const role = "Frontend Developer";
+const experience = 2;
+
+const profile = {
+  user_name,
+  role,
+  experience
+}
+console.log(profile);
+
+// Challenge #2
+const car_brand = "Tesla";
+const speed = 120;
+
+const car_obj = {
+  car_brand,
+  speed,
+  accelerate() {
+    this.speed += 10;
+    return this.speed;
+  }
+}
+console.log(car_obj.accelerate());
+
+// Challenge #3
+const day1 = "mon";
+const day2 = "tue";
+
+const openingHours = {
+  [day1]: "9 AM - 5 PM",
+  [day2]: "10 AM - 6 PM"
+}
+console.log(openingHours);
+
 // ----------- Optional Chaining
 
 /*
