@@ -489,6 +489,16 @@ console.log(openingHours);
 
 // ----------- Optional Chaining
 
+const user4 = {
+  name: "Hari",
+  address: {
+    city: "Chennai",
+  },
+};
+
+console.log(user4.address?.city);
+console.log(user4?.pincode);
+
 /*
 Safe Access to Nested Properties
 
@@ -543,6 +553,27 @@ for (const user of user3) {
   // Your code here
   console.log(`${user.name}'s total: ${user.cart?.total ?? 0}`);
 }
+
+// ------------ Looping Objects, Object Keys, Values, and Entries
+const usersProfile = {
+  Hari: "Frontend",
+  Arjun: "Backend",
+  Ravi: "Fullstack",
+};
+
+const userNames = Object.keys(usersProfile);
+console.log(userNames);
+
+const userRoles = Object.values(usersProfile);
+console.log(userRoles);
+
+const userProfileDetails = Object.entries(usersProfile);
+console.log(userProfileDetails);
+
+for (const [name, role] of userProfileDetails) {
+  console.log(`${name} work as ${role}`);
+}
+
 
 // ----------- Sets Challenges
 

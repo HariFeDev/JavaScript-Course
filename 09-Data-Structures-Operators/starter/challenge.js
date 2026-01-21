@@ -155,35 +155,19 @@ Lewandowski: 2
 GOOD LUCK 😀
 */
 // 1
-const goals = game.scored;
-
-for ([goalNum, goalTeam] of goals.entries()) {
-  console.log(`Goal ${goalNum + 1}: ${goalTeam}`);
+for (const [goal, playerName] of Object.entries(game.scored)) {
+  console.log(`Goal ${goal}: ${playerName}`);
 }
 
 // 2
 const odds = Object.values(game.odds);
 console.log(odds);
-
-let sumOfOdds = 0;
-
-for (const y of odds) {
-  console.log(y);
-  sumOfOdds += y;
-}
-
-const AverageOfOdds = sumOfOdds / odds.length;
-console.log(AverageOfOdds);
+const [a, b, c] = odds;
+console.log(a + b + c);
+const average = (a + b + c) / odds.length;
+console.log(average);
 
 // 3
-for (const [team, odds] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `${game[team]}`;
-  console.log(`Odd of ${teamStr}: ${odds}`);
-}
-
-// BONUS
-const scorers = {};
-for (const player of game.scored) {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-}
-console.log(scorers);
+console.log(Object.keys(game.odds));
+const [s, d, v] = Object.keys(game.odds);
+console.log(s, d, v);
