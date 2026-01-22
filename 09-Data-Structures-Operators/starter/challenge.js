@@ -168,6 +168,28 @@ const average = (a + b + c) / odds.length;
 console.log(average);
 
 // 3
-console.log(Object.keys(game.odds));
-const [s, d, v] = Object.keys(game.odds);
-console.log(s, d, v);
+console.log(Object.entries(game.odds));
+for (const [key, odd] of Object.entries(game.odds)) {
+  const teamName = `${key === 'x' ? 'draw' : game[key]}`;
+  console.log(`Odd of victory ${teamName}: ${odd}`);
+}
+
+// 4
+const scorers = {};
+
+for (const player of game.scored) {
+  console.log(player);
+  console.log(scorers[player]);
+  scorers[player] = scorers[player] ? scorers[player] + 1 : 1
+}
+console.log(scorers);
+
+// 5 
+
+const fruits = ['apple', 'apple', 'banana'];
+
+const fruitBowl = {};
+for (const fruit of fruits) {
+  fruitBowl[fruit] = fruitBowl[fruit] ? fruitBowl[fruit] + 1 : 1
+}
+console.log(fruitBowl);
