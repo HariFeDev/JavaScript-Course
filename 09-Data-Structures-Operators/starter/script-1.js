@@ -178,20 +178,60 @@ console.log([...question.values()]);
 console.log([...question.keys()]);
 
 // Maps Challenge
+
+// 1 - 3mins
 const fruits = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
 const fruitsMap = new Map();
-// const fruitsSet = new Set(fruits)
-// console.log(fruitsSet);
-let count = 0;
-let currFruit;
+
 for (const fruit of fruits) {
   console.log(fruit);
-  currFruit = fruit
-  // console.log(currFruit);  
-  for (const repFruit of fruits) {
-    if (repFruit === currFruit) {
-      count += 1;
-      console.log(`repFruit: ${repFruit} and currFruit: ${currFruit} - ${count}`);
-    }
+  if (fruitsMap.has(fruit)) {
+    fruitsMap.set(fruit, fruitsMap.get(fruit) + 1);
+  } else {
+    fruitsMap.set(fruit, 1);
   }
+}
+
+console.log(fruitsMap);
+
+// 2 - 11mins
+const marks = new Map([
+  ['Hari', 80],
+  ['Arjun', 70],
+  ['Ravi', 90],
+  ['Kumar', 60],
+]);
+
+console.log(marks.size);
+
+let average = 0;
+
+// for (const [name, value] of marks) {
+//   console.log(name, value);
+//   average += value;
+// }
+// console.log(average);
+// average /= marks.size
+// console.log(average);
+
+for (const mark of marks.values()) {
+  console.log(mark);
+  average += mark
+}
+average /= marks.size;
+console.log(average);
+
+for (const [name, value] of marks) {
+  if (value > average) {
+    console.log(`Above average: ${name}`);
+  }
+}
+
+// 3 - 5mins
+const userLoginStatus = new Map();
+userLoginStatus.set('Hari', 'Admin').set(101, "Guest").set(true, 'Logged In');
+console.log(userLoginStatus);
+
+for (const [key, value] of userLoginStatus) {
+  console.log(`Key: ${key} -> Value: ${value}`);
 }
