@@ -57,8 +57,212 @@ const restaurant = {
   },
 };
 
+// ----------- Working with Strings Part - 3 ------------
+
+// Split the string and stored it in the array
+// -After the + it will split the string
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schedtmann'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schedtmann'.split(' ')
+console.log(firstName, lastName);
+
+// join() - to join the string
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ')
+console.log(newName);
+const otherName = ['Mr.', firstName, lastName.toUpperCase()].join('*')
+console.log(otherName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  let namesUpper = [];
+
+  for (const n of names) {
+    // console.log(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n[0].toUpperCase() + n.slice(1))
+    // namesUpper.push(n.replace(n[0], n[0].toUpperCase()))
+  }
+  console.log(namesUpper.join(' '));
+}
+
+capitalizeName('jesicca ann smith davis')
+capitalizeName('jonas schedtmann')
+
+// Padding
+const message = 'Go to gate 23!'
+console.log(message.padStart(25, '+').padEnd(33, '*'));
+
+const markCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*')
+}
+
+console.log(markCreditCard(4747475826));
+console.log(markCreditCard(1234567890));
+
+// repeat
+const message2 = 'Bad weather... All Departures... Delayed '
+console.log(message2.repeat(3));
+
+const planeInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'🛬'.repeat(n)}`);
+}
+
+planeInLine(5);
+planeInLine(3);
+planeInLine(12);
+
+// ----------- Working with Strings Part - 2 ------------
+/*
+const airline = 'TAP Airs Portugal'
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix Capitalization Name issue
+const passenger = 'jOnAs';
+const passsengerLower = passenger.toLowerCase();
+const paasengerCorrect = passsengerLower[0].toUpperCase() + passsengerLower.slice(1);
+
+console.log(passenger);
+console.log(passsengerLower);
+console.log(paasengerCorrect);
+
+const passengerName = function (name) {
+  const pName = name.toLowerCase();
+  const correctPname = pName[0].toUpperCase() + pName.slice(1);
+  console.log(correctPname);
+}
+
+passengerName('vishva');
+passengerName('Baala');
+passengerName('hari');
+
+// Comparing emails
+const email = 'hello@jonas.io';
+const loginEmail = ' Hello@joNaS.Io \n ';
+const lowercaseEmail = loginEmail.toLowerCase();
+console.log(lowercaseEmail);
+const trimmedEmail = lowercaseEmail.trim();
+console.log(trimmedEmail);
+
+const normalisedEmail = loginEmail.toLowerCase().trim();
+console.log(normalisedEmail);
+
+console.log(email === normalisedEmail);
+
+// replacing
+const priceGB = '288,97*';
+console.log(priceGB);
+const priceUS = priceGB.replace('*', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement = 'All Passenger come to door 23. Boarding door 23!'
+console.log(announcement);
+console.log(announcement.replace('door', 'gate'));
+
+// Replace all
+console.log(announcement.replaceAll('door', 'gate'));
+
+// Another old way
+console.log(announcement.replace(/door/, 'gate'));
+
+// replace all
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans
+const plane = 'Airbus A230neo'
+console.log(plane.includes('A23'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Airbus'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('part of NEW ARirbus family');
+}
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are not aloowed 🔴');
+  } else {
+    console.log('Welcome to onboard 👏');
+  }
+}
+
+checkBaggage('I have a Laptop, some Food and a pocket Knife')
+checkBaggage('Socks and Camera')
+checkBaggage('Got some snacks and a gun for protection')
+
+*/
+
+// ----------- Working with Strings Part - 1 ------------
+/*
+const airline = 'TAP Airs Portugal'
+const plane = 'A230'
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log(plane[3]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+// indexof - calculate first r in the string
+console.log(airline.indexOf('r'));
+
+// indexof - calculate first r in the string
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
+
+// Slice will start from the index value of the string we specified
+console.log(airline.slice(0));
+console.log(airline.slice(4));
+
+// Starts from the 4 and ends before the 7
+console.log(airline.slice(4, 7));
+
+// This is not empty string i specify the first gap indexOf will only calculate first occurance of gap
+console.log(airline.slice(0, airline.indexOf(' ')));
+
+// It calculaate last gap in the string
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// Negative Parameter will be calculated from the last
+console.log(airline.slice(-2));
+console.log(airline.slice(-1));
+console.log(airline.slice(0, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B an E are Middle seats
+  console.log(seat.slice(0));
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log(`Seat Number: ${seat} is Middle Seat `);
+  } else {
+    console.log(`Seat Number: ${seat} not a Middle Seat`);
+  }
+}
+
+checkMiddleSeat('11B')
+checkMiddleSeat('23C')
+checkMiddleSeat('3E')
+
+// Method like indexOf, slice, etc... will work also in string because behind the scenes JS store the string like object
+console.log(new String('jonas'));
+console.log(typeof new String('jonas'));
+
+// After the opreration done it comes back to its original type primitive string
+console.log(typeof new String('jonas').slice(0));
+
+*/
+
+
 // ----------- Maps Iteration------------
 // Another way of creating a new map
+/*
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
   [1, 'C'],
@@ -92,6 +296,8 @@ console.log(question.get(answer === question.get('correct')));
 console.log([...question]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
+
+*/
 
 // ----------- Maps Fundamentals------------
 
@@ -286,7 +492,7 @@ console.log(guesCorrect);
 /*
 console.log('----- OR -----');
 console.log(3 || 'Jonas');
-console.log('' || 'Jonas'); 
+console.log('' || 'Jonas');
 console.log(true || 0);
 console.log(undefined || null);
 
