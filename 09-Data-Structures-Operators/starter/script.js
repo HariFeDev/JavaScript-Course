@@ -95,6 +95,7 @@ console.log(message.padStart(25, '+').padEnd(33, '*'));
 const markCreditCard = function (number) {
   const str = number + '';
   const last = str.slice(-4);
+  console.log(str, last);
   return last.padStart(str.length, '*')
 }
 

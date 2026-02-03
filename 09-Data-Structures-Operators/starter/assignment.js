@@ -620,5 +620,64 @@ const union = new Set([...setA, ...setB]);
 console.log(union);
 
 
+// ----------- Working with Strings 
+// 1 - 5min
+const email = "  HariHARAN@Gmail.Com  ";
+const [nameOfTheuser, userEmail] = email.split('@');
+nameOfTheuser.trim();
+console.log(nameOfTheuser.toLowerCase().trim());
 
+// 2 - 4min
+const cardNumber = "1234567812345678";
+cardNumber + '';
+console.log(cardNumber);
+console.log(typeof cardNumber);
+
+const str = cardNumber.slice(-4)
+console.log(str);
+
+console.log(str.padStart(cardNumber.length, '*'));
+
+// 3 - 15min
+const fullNameOfTheUser = "haRi arJun kuMar";
+
+let loweCaseName;
+let captilaize = [];
+
+for (const name of fullNameOfTheUser.split(' ')) {
+  // console.log(name.toLowerCase());
+  loweCaseName = name.toLowerCase();
+  // console.log(loweCaseName);
+  captilaize.push(loweCaseName[0].toUpperCase() + loweCaseName.slice(1));
+  captilaize.join(' ');
+  console.log(captilaize);
+}
+
+console.log(captilaize.join(' '));
+
+// 4 - 5min
+const checkMiddleSeat = function (seat) {
+  if (seat.endsWith('1')) {
+    console.log('Middle Seat');
+  } else if (seat.endsWith('3')) {
+    console.log('Side Lower');
+  } else if (seat.endsWith('0')) {
+    console.log('Side Upper');
+  }
+}
+
+checkMiddleSeat("B11")
+checkMiddleSeat("C3")
+checkMiddleSeat("E20")
+
+// 5 - 10min
+const message = "Delayed!!!   Train    arriving     late!!!";
+
+const cleanedMessage = message
+  .trim()
+  .replaceAll('!!!', '!')
+  .replaceAll('   ', ' ')
+  .replaceAll('  ', ' ');
+
+console.log(cleanedMessage);
 
