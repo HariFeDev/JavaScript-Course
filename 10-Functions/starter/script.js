@@ -28,6 +28,7 @@ createBooking('LH123', undefined, 15);
 */
 
 // ----------- Values VS Reference
+/*
 const flight = 'LH123';
 const jonas = {
   name: 'Jonas schedtmann',
@@ -46,6 +47,7 @@ const checkIn = function (flightNum, passenger) {
 }
 
 checkIn(flight, jonas)
+*/
 
 /*
 - It is primitive type
@@ -54,7 +56,7 @@ checkIn(flight, jonas)
 const a = 1 -> it points to memory address 1010.
 - const b = a -> it copy the data and store it in different memory address 1103.
 */
-console.log(flight);
+// console.log(flight);
 /*
 - It is object type
 - Here it affected the original object⬇️.
@@ -63,17 +65,41 @@ console.log(flight);
 - Ex: const a = {name: 'jonas'} -> reference address something like this -> DA30K -> reference address points to memory address in the heap -> 0101.
 - const b = a -> b.name = 'Mike' -> it points to a ->reference address ->DA30K -> reference address points to memory address in the heap -> 0101.
 */
-console.log(jonas);
+// console.log(jonas);
 
 /*
-- In the above function we are doing the same code below⬇️ 
-*/
+- In the above function we are doing the same code below⬇️
 const flightNum = flight;
 const passenger = jonas;
-
+*/
+/*
 const newPassport = function (person) {
   person.passport = Math.trunc(Math.random() * 10000000000);
 }
 
 newPassport(jonas);
 checkIn(flight, jonas)
+
+*/
+
+// ----------- Function accepting callback function
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowercase()
+}
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+}
+
+// Higher-Order Function
+const transformer = function (str, fn) {
+  console.log(`Original String: ${str}`);
+  console.log(`Transformed String: ${fn(str)}`);
+
+  // To get the name of the function 
+  // Function also have a properties
+  console.log(fn.name);
+}
+
+transformer('JavaScript is the best!', upperFirstWord);
