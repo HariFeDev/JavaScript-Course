@@ -84,7 +84,7 @@ checkIn(flight, jonas)
 
 // ----------- Function accepting callback function
 const oneWord = function (str) {
-  return str.replace(/ /g, '').toLowercase()
+  return str.replace(/ /g, '').toLowerCase();
 }
 
 const upperFirstWord = function (str) {
@@ -103,3 +103,9 @@ const transformer = function (str, fn) {
 }
 
 transformer('JavaScript is the best!', upperFirstWord);
+transformer('JavaScript is the best!', oneWord);
+
+const high5 = function () {
+  console.log('👋');
+}
+document.body.addEventListener('click', high5)
