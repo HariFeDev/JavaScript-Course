@@ -84,10 +84,13 @@ checkIn(flight, jonas)
 
 // ----------- Function accepting callback function
 const oneWord = function (str) {
-  return str.replace(/ /g, '').toLowerCase();
+  // return str.replace(/ /g, '').toLowerCase();
+  return str.replaceAll(' ', '').toLowerCase();
 }
 
 const upperFirstWord = function (str) {
+  console.log(str);
+  console.log(str.split(' '));
   const [first, ...others] = str.split(' ');
   return [first.toUpperCase(), ...others].join(' ');
 }
@@ -105,7 +108,23 @@ const transformer = function (str, fn) {
 transformer('JavaScript is the best!', upperFirstWord);
 transformer('JavaScript is the best!', oneWord);
 
+// JS uses callback all the time
 const high5 = function () {
   console.log('👋');
 }
-document.body.addEventListener('click', high5)
+document.body.addEventListener('click', high5);
+['Jonas', 'Martha', 'Adam'].forEach(high5)
+
+const sayHi = function () {
+  console.log('hi');
+};
+
+const execute = function (fn) {
+  // sayHi = fn
+  // sayHi() = fn()
+  // first it prints hi
+  // sayHi function doesn't return anything so when execute function tries to return it, this becomes undefined.
+  return fn();
+};
+
+console.log(execute(sayHi));
