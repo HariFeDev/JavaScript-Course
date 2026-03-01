@@ -83,6 +83,7 @@ checkIn(flight, jonas)
 */
 
 // ----------- Function accepting callback function
+/*
 const oneWord = function (str) {
   // return str.replace(/ /g, '').toLowerCase();
   return str.replaceAll(' ', '').toLowerCase();
@@ -100,7 +101,7 @@ const transformer = function (str, fn) {
   console.log(`Original String: ${str}`);
   console.log(`Transformed String: ${fn(str)}`);
 
-  // To get the name of the function 
+  // To get the name of the function
   // Function also have a properties
   console.log(fn.name);
 }
@@ -128,3 +129,86 @@ const execute = function (fn) {
 };
 
 console.log(execute(sayHi));
+*/
+
+// ----------- Function Returning Functions
+// Function Expression
+/*
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  }
+}
+
+const greeteHey = greet('Hey');
+greeteHey('Jonas');
+greeteHey('Steven');
+
+// First greet('Hey') returns a function
+// Then ('Jack') immediately calls that returned function
+greet('Hey')('Jack')
+
+// Arrow Function
+const greetArr = (greetText) => {
+  return (greetName) => {
+    console.log(`${greetText} ${greetName}`);
+  }
+}
+
+const greetMsg = greetArr('Hello');
+greetMsg('Harris')
+
+greetArr('heyyy')('Yow')
+*/
+
+
+// ----------- Call and Apply Methods
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name: `${name}` })
+  }
+}
+
+lufthansa.book(239, 'Jonas Schedtmann');
+lufthansa.book(635, 'John Smith');
+console.log(lufthansa);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+}
+
+const book = lufthansa.book;
+
+// Does NOT work
+// book(23, 'Sarah Williams');
+
+// Call Method
+book.call(eurowings, 23, 'Sarah Williams')
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mary Cooper')
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+}
+
+book.call(swiss, 583, 'Mary Cooper');
+console.log(swiss);
+
+// Apply Method
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+// Modern Js not using the APPLY Method instead using Call Method
+book.call(swiss, ...flightData);

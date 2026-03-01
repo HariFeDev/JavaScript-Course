@@ -63,3 +63,46 @@ const execute = function (fn) {
 };
 
 console.log(execute(sayHi));
+
+// ----------- Function Returning Functions
+// 1
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting}, ${name} `);
+  }
+}
+
+const greetHey = greet('Hey');
+greetHey('Hari');
+
+// 2
+const multiplier = function (factor) {
+  // return a function
+  return function (num) {
+    return factor * num;
+  }
+};
+
+const duo = multiplier(2);
+const triple = multiplier(3);
+
+console.log(duo(5));   // 10
+console.log(triple(5));   // 15
+
+// 3
+const createCounter = function () {
+  // return a function
+  // return `Hi`
+  let count = 0;
+  return function () {
+    count++;
+    return count
+  }
+};
+
+const counter1 = createCounter();
+console.log(counter1);
+
+console.log(counter1()); // 1
+console.log(counter1()); // 2
+console.log(counter1()); // 3
