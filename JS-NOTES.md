@@ -1,9 +1,33 @@
-## Call Method
+# A Closer Look at Functions
 
-- object.call(function name, argument1, argument2)
-- using object we can call the specific function which we want
+## call()
 
-## Apply Method
+- Used to manually set `this`
+- Immediately invokes the function
+- Syntax: functionName.call(thisArg, arg1, arg2)
 
-- object.apply(function name, [Array of values])
-- This is old type modern JS instead not using Apply method instead using call method
+Example:
+greet.call(person, "Hi")
+
+Important:
+First argument = value of `this`
+
+## apply()
+
+- Same as call()
+- Difference: arguments are passed as an array
+- Syntax: functionName.apply(thisArg, [argsArray])
+
+Example:
+greet.apply(person, ["Hi"])
+
+Modern JS:
+Instead of apply(), we can use:
+greet.call(person, ...array)
+
+## bind()
+
+- Mention the `this` manually
+- Difference: It will not automatically call the function and returns new function
+- To set default parameters like partial application
+- Once we fixed `this` in bind() we cannot change that using call()

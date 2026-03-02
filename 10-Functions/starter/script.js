@@ -212,3 +212,52 @@ console.log(swiss);
 
 // Modern Js not using the APPLY Method instead using Call Method
 book.call(swiss, ...flightData);
+
+// Bind Method
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steve Williams')
+
+const bookEW23 = book.bind(eurowings, 23);
+// bookEW23()
+bookEW23('Jonas Schedtmann');
+bookEW23('Martha Cooper');
+
+console.log(eurowings);
+
+// With Event  Listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+}
+
+// lufthansa.buyPlane()
+
+document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+const addTax = (rate, value) => {
+  return value + value * rate;
+}
+
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23)
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+// Challenge
+// Using function returning function 
+const tax = function (rate) {
+  return function (value) {
+    console.log(value + value * rate);
+  }
+}
+
+const taxRate = tax(0.1);
+taxRate(200);
