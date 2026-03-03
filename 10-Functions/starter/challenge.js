@@ -76,3 +76,33 @@ console.log(duplicates);
 seenIds.add(visitor.id); in this line what if i put this seenIds.add(visitor);
 explain what difference between them and if i do this what it cause error and why
 */
+
+// Challenge #1
+const poll = {
+  question: "What is your favourite programming language?",
+  options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    const favLanguage = Number(prompt(`${this.question}
+      ${this.options}`))
+    if (favLanguage >= 0 && favLanguage < this.answers.length) {
+      this.answers[favLanguage] = this.answers[favLanguage] + 1;
+    }
+    this.displayResults();
+    this.displayResults('string');
+  },
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    }
+    else if (type === 'string') {
+      console.log(`polls are ${this.answers.join(', ')}`);
+    }
+  }
+};
+
+document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+// console.log(new Array(4).fill(0));
+// console.log(poll.registerNewAnswer);
+// console.log(poll.answers);
