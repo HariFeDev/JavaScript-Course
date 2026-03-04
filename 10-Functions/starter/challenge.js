@@ -101,7 +101,11 @@ const poll = {
   }
 };
 
+
+
 document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
+const newFn = poll.displayResults.bind({ answers: [5, 2, 3] });
+newFn('string');
 
 // console.log(new Array(4).fill(0));
 // console.log(poll.registerNewAnswer);
