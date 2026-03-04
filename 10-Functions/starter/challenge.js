@@ -83,15 +83,18 @@ const poll = {
   options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
   answers: new Array(4).fill(0),
   registerNewAnswer() {
-    const favLanguage = Number(prompt(`${this.question}
-      ${this.options}`))
-    if (favLanguage >= 0 && favLanguage < this.answers.length) {
+
+    const favLanguage = Number(prompt(`${this.question}\n ${this.options.join('\n')}\n write option number`))
+
+    if (favLanguage >= 0 && typeof favLanguage === 'number' && favLanguage < this.answers.length) {
       this.answers[favLanguage] = this.answers[favLanguage] + 1;
     }
+
     this.displayResults();
     this.displayResults('string');
   },
   displayResults(type = 'array') {
+
     if (type === 'array') {
       console.log(this.answers);
     }
@@ -104,9 +107,10 @@ const poll = {
 
 
 document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
-const newFn = poll.displayResults.bind({ answers: [5, 2, 3] });
-newFn('string');
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6] });
+
 
 // console.log(new Array(4).fill(0));
 // console.log(poll.registerNewAnswer);
-// console.log(poll.answers);
+// console.log(poll.answers);R
