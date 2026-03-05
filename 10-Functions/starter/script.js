@@ -163,6 +163,7 @@ greetArr('heyyy')('Yow')
 
 
 // ----------- Call and Apply Methods
+/*
 const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
@@ -252,7 +253,7 @@ console.log(addVAT(100));
 console.log(addVAT(23));
 
 // Challenge
-// Using function returning function 
+// Using function returning function
 const tax = function (rate) {
   return function (value) {
     console.log(value + value * rate);
@@ -261,3 +262,92 @@ const tax = function (rate) {
 
 const taxRate = tax(0.1);
 taxRate(200);
+*/
+
+// -----------Immediately Invoked Function Expression(IIFE)
+/*
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+// IIFE
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})();
+
+(() => console.log('This will ALSO never run again'))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+
+// console.log(isPrivate);
+console.log(notPrivate);
+*/
+
+// Closures
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`Passengers: ${passengerCount}`);
+  }
+}
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker)
+
+// Example:1
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  }
+}
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  }
+}
+
+g();
+f();
+console.dir(f);
+
+// Re-assigning f function by h
+h();
+f();
+console.dir(f);
+
+// Example:2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000)
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+// Closure have more priority than the scope chain
+const perGroup = 1000;
+boardPassengers(180, 5)
+
+setTimeout(function () {
+  console.log('TIMER');
+}, 3000)
