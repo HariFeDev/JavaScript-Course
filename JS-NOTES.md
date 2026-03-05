@@ -31,3 +31,11 @@ greet.call(person, ...array)
 - Difference: It will not automatically call the function and returns new function
 - To set default parameters like partial application
 - Once we fixed `this` in bind() we cannot change that using call()
+
+## Closure
+
+- Function remembers outer scope variables
+- Works even after outer function finished
+- Happens because of lexical scope
+
+Example: counter functions, callbacks

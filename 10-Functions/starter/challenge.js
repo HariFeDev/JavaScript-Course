@@ -111,6 +111,18 @@ poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6] });
 
 
+
 // console.log(new Array(4).fill(0));
 // console.log(poll.registerNewAnswer);
-// console.log(poll.answers);R
+// console.log(poll.answers);
+
+// Challenge #2
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue'
+  })
+})();

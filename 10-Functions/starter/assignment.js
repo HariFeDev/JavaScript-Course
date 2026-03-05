@@ -224,3 +224,53 @@ console.log(addGST(100));
 
 const addGST2 = taxCalculator.bind(null, 0.05);
 console.log(addGST2(100));
+
+// ----------- Closures
+// 1 - 6min
+const counter = function () {
+  let count = 0;
+
+  return function () {
+    count++;
+    console.log(count);
+  }
+}
+
+const counter_1 = counter();
+counter_1()
+counter_1()
+counter_1()
+
+// 2 - 6min
+const createMultiplier = function (x) {
+  return function (y) {
+    return x * y;
+  }
+}
+
+const double_ = createMultiplier(2);
+console.log(double_(5));
+console.log(double_(10));
+
+const triple_ = createMultiplier(3);
+console.log(triple_(5));
+
+// 3 - 11min
+const bank = {
+  owner: "Hari",
+  balance: 1000
+};
+
+const deposit = function (amount) {
+  console.log(`${this.owner} deposited ${amount}. Balance: ${this.balance + amount}`);
+}
+
+const a = deposit.bind(bank);
+a(500);
+
+const friend = {
+  owner: "Ragnar",
+  balance: 200
+};
+
+deposit.call(friend, 500);
