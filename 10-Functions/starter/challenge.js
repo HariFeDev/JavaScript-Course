@@ -1,3 +1,4 @@
+'use strict';
 // Challenge 1
 const usernames = [
   'hari',
