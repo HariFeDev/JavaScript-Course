@@ -71,12 +71,14 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+// SIMPLE ARRAY METHODS 
+/*
+let arr = ['a', 'b', 'c', 'd', 'e'];
 
 // SLICE
-let arr = ['a', 'b', 'c', 'd', 'e'];
 console.log(arr.slice(2));
 console.log(arr.slice(2, 4));
 console.log(arr.slice(2, arr.length - 1));
@@ -93,3 +95,37 @@ console.log(arr);
 
 // REVERSE
 arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse());
+console.log(arr2);
+
+// CONCAT
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+
+// JOIN 
+console.log(letters.join('-'));
+*/
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log('-----FOR OF-----');
+// for (const movement of movements) {
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}:You deposited ${Math.abs(movement)}`);
+  } else {
+    console.log(`Movement ${i + 1}:You withdraw ${Math.abs(movement)}`);
+  }
+}
+
+console.log('----FOR EACH-----');
+
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You deposited ${Math.abs(movement)}`);
+  } else {
+    console.log(`You withdraw ${Math.abs(movement)}`);
+  }
+})
