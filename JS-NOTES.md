@@ -42,7 +42,7 @@ Example: counter functions, callbacks
 
 ### Working With Arrays
 
-## splic()
+## splice()
 
 - It mutates the array.
 - Splice it mainly to used delete the value.
