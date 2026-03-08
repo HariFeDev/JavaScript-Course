@@ -1,4 +1,4 @@
-# A Closer Look at Functions
+### A Closer Look at Functions
 
 ## call()
 
@@ -39,3 +39,27 @@ greet.call(person, ...array)
 - Happens because of lexical scope
 
 Example: counter functions, callbacks
+
+### Working With Arrays
+
+## splic()
+
+- It mutates the array.
+- Splice it mainly to used delete the value.
+- array.splice(start index, count)
+
+## forEach()
+
+- Executes a callback function once for each element.
+
+Array forEach arguments:
+(value, index, array)
+
+Map forEach arguments:
+(value, key, map)
+
+Set forEach arguments:
+(value, value, set)
+
+Note:
+In Sets there is no key, so value is repeated twice.
