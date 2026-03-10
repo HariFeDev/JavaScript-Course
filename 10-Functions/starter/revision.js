@@ -40,3 +40,63 @@ const nameTransformer = function (str, fn) {
 }
 
 nameTransformer('js is the best language!', upperCase)
+
+// Function returning function
+const greet = function (msg) {
+  return function (name) {
+    console.log(`${msg} ${name}💐`);
+  }
+}
+
+const greetMsg = greet('Hello');
+greetMsg('Jonas');
+
+
+// Call Method
+const obj1 = {
+  name: 'jonas',
+  printName() {
+    console.log(this.name);
+  },
+  arr(mov) {
+    console.log(mov);
+  }
+}
+
+const obj2 = {
+  name: 'Hari',
+}
+
+const obj3 = {
+  name: 'Ragnar',
+}
+
+obj1.printName();
+
+// call
+obj1.printName.call(obj2);
+
+// apply
+obj1.arr.apply(obj1, ['HI'])
+
+// Bind
+const nameBind = obj1.printName.bind(obj3);
+nameBind();
+
+// closures
+
+const x = function () {
+  let count = 0;
+
+  return function () {
+    count++;
+    console.log(count);
+  }
+}
+
+const y = x();
+y();
+y();
+y();
+
+
