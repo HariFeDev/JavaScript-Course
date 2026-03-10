@@ -42,6 +42,12 @@ Example: counter functions, callbacks
 
 ### Working With Arrays
 
+## slice ()
+
+- It does not mutates the array
+- Mainly used for copying the array
+- array.slice(start index, end index) here end index value does not inlcude.
+
 ## splice()
 
 - It mutates the array.
