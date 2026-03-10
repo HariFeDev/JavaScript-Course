@@ -55,3 +55,40 @@ arr4.concat(arr5).map((two) => two * 2).forEach(function (value, index) {
   console.log(`Number ${index + 1}: ${value}`);
 })
 
+// filter + map
+// 1
+const ages = [5, 12, 17, 18, 24, 32];
+
+const adultAges = ages.filter((adult) => {
+  return adult >= 18
+})
+console.log(adultAges);
+
+const adultAgesString = adultAges.map((str) => {
+  return `Adult: ${str}`
+})
+
+console.log(adultAgesString);
+
+// 2
+const prices_2 = [100, 200, 300];
+const b = prices_2.map((price) => price += price * 0.18)
+console.log(b);
+
+const c = b.reduce((acc, curr) => {
+  return acc + curr
+}, 0)
+console.log(c);
+
+// 3
+const numbers_4 = [5, 12, 8, 130, 44];
+const greaterThanTen = numbers_4.filter((num) => num > 10);
+console.log(greaterThanTen);
+
+const d = greaterThanTen.map((double) => double * 2)
+console.log(d);
+
+const e = d.reduce((acc, curr) => {
+  return acc + curr
+}, 0)
+console.log(e);

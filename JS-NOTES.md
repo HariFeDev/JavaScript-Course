@@ -61,7 +61,7 @@ Example: counter functions, callbacks
 Array forEach arguments:
 (value, index, array)
 
-Map forEach arguments:
+Map data structure forEach arguments:
 (value, key, map)
 
 Set forEach arguments:
@@ -69,3 +69,58 @@ Set forEach arguments:
 
 Note:
 In Sets there is no key, so value is repeated twice.
+
+## map()
+
+- Transforms each element of an array.
+- Returns a new array with the transformed values.
+- Does NOT modify the original array.
+
+Arguments:
+(value, index, array)
+
+Example:
+const arr = [1, 2, 3];
+const result = arr.map(num => num \* 2);
+
+Output: [2, 4, 6]
+
+## filter()
+
+- Creates a new array with elements that pass a condition.
+- The callback must return true or false.
+
+Arguments:
+(value, index, array)
+
+Example:
+const arr = [1, 2, 3];
+
+const result = arr.filter(num => num > 1);
+
+Output: [2, 3]
+
+## reduce()
+
+- Reduces an array into a single value.
+
+Arguments:
+(accumulator, currentValue, index, array)
+
+- accumulator stores the result from the previous iteration.
+- The second argument of reduce is the initial value.
+
+Example:
+const arr = [1, 2, 3];
+
+const maximumValue = arr.reduce((acc, curr) => {
+return acc > curr ? acc : curr;
+}, arr[0]);
+
+Output: 3
+
+## map() vs filter() vs reduce()
+
+map → transform
+filter → select
+reduce → combine
