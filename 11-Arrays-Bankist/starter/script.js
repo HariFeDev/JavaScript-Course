@@ -65,7 +65,7 @@ const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
 
   movements.forEach(function (mov, i) {
-    console.log(i, mov);
+    // console.log(i, mov);
     const type = mov > 0 ? 'deposit' : 'withdrawal'
 
     const html = `
@@ -81,6 +81,20 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+// Computing Usernames
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.userName = acc.owner.toLowerCase().split(' ').map((word) => word[0]).join('');
+    console.log(acc.userName);
+  })
+}
+
+createUsernames(accounts)
+console.log(accounts);
+
+const user = 'Steven Thomas Williams'
+
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -91,7 +105,7 @@ displayMovements(account1.movements);
 //   ['GBP', 'Pound sterling'],
 // ]);
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 // SIMPLE ARRAY METHODS
@@ -170,10 +184,39 @@ currencies.forEach(function (value, key, map) {
   // console.log(`${map}`);
 })
 
-// Sets 
+// Sets
 const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
 console.log(currenciesUnique);
 currenciesUnique.forEach(function (value, _, map) {
   console.log(`${value}: ${value}`);
 })
+*/
+
+// map method
+/*
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUsd;
+})
+
+console.log(movements);
+console.log(movementsUSD);
+
+// using for of loop to achieve same thing
+const movUSD = []
+for (const mov of movements) {
+  movUSD.push(mov * eurToUsd);
+}
+console.log(movUSD);
+
+// arrow function map
+const movementsUSDArrow = movements.map((mov) => mov * eurToUsd)
+console.log(movementsUSDArrow);
+
+const movementsDescription = movements.map((mov, i) =>
+  `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdraw'} ${Math.abs(mov)}💸`
+)
+
+console.log(movementsDescription);
 */
