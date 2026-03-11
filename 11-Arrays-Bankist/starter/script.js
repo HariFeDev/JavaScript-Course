@@ -71,7 +71,7 @@ const displayMovements = function (movements) {
     const html = `
     <div class="movements__row">
       <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${mov}€</div>
     </div>
     `;
 
@@ -104,6 +104,33 @@ const calcDisplayBalance = function (movements) {
 }
 
 calcDisplayBalance(account1.movements)
+
+const calcDisplaySummary = function (movements) {
+
+  // Display incomes
+  const incomes = movements.filter((mov) => mov > 0).reduce((acc, mov) => acc + mov, 0);
+  console.log(incomes);
+
+  labelSumIn.textContent = `${incomes}€`
+
+  // Display out
+  const out = movements.filter((mov) => mov < 0).reduce((acc, mov) => acc + mov, 0)
+  console.log(out);
+
+  labelSumOut.textContent = `${Math.abs(out)}€`
+
+  // Display interest
+  const interest = movements.filter((mov) => mov > 0).map((mov) => mov * 1.2 / 100).filter((mov, i, arr) => {
+    console.log(i, arr);
+    return mov >= 1;
+  }).reduce((acc, mov) => acc + mov, 0)
+  console.log(interest);
+
+  labelSumInterest.textContent = `${interest}€`
+
+}
+
+calcDisplaySummary(account1.movements)
 
 // Computing Usernames
 const createUsernames = function (accs) {
@@ -258,6 +285,7 @@ console.log(withdraws);
 */
 
 // reduce method
+/*
 
 console.log(movements);
 
@@ -275,3 +303,14 @@ const maximumValue = movements.reduce((acc, curr) => {
 }, movements[0])
 
 console.log(maximumValue);
+*/
+
+// Chaining Method
+/*
+const totalDepositsUSD = movements
+  .filter((mov) => mov > 0)
+  .map((mov) => mov * 1.1)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositsUSD);
+*/
