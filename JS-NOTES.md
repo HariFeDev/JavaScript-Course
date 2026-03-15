@@ -124,3 +124,13 @@ Output: 3
 map → transform
 filter → select
 reduce → combine
+
+## find()
+
+- Return the first element in the array that pass a condition.
+- It returns only one sigle element
+
+## filter() vs find()
+
+filter -> returns an array.
+find -> retunrs a single element

@@ -103,24 +103,24 @@ const calcDisplayBalance = function (movements) {
   labelBalance.textContent = `${balance}€`
 }
 
-calcDisplayBalance(account1.movements)
 
-const calcDisplaySummary = function (movements) {
+const calcDisplaySummary = function (acc) {
+  console.log(acc);
 
   // Display incomes
-  const incomes = movements.filter((mov) => mov > 0).reduce((acc, mov) => acc + mov, 0);
+  const incomes = acc.movements.filter((mov) => mov > 0).reduce((acc, mov) => acc + mov, 0);
   console.log(incomes);
 
   labelSumIn.textContent = `${incomes}€`
 
   // Display out
-  const out = movements.filter((mov) => mov < 0).reduce((acc, mov) => acc + mov, 0)
+  const out = acc.movements.filter((mov) => mov < 0).reduce((acc, mov) => acc + mov, 0)
   console.log(out);
 
   labelSumOut.textContent = `${Math.abs(out)}€`
 
   // Display interest
-  const interest = movements.filter((mov) => mov > 0).map((mov) => mov * 1.2 / 100).filter((mov, i, arr) => {
+  const interest = acc.movements.filter((mov) => mov > 0).map((mov) => mov * acc.interestRate / 100).filter((mov, i, arr) => {
     console.log(i, arr);
     return mov >= 1;
   }).reduce((acc, mov) => acc + mov, 0)
@@ -130,7 +130,6 @@ const calcDisplaySummary = function (movements) {
 
 }
 
-calcDisplaySummary(account1.movements)
 
 // Computing Usernames
 const createUsernames = function (accs) {
@@ -143,6 +142,41 @@ const createUsernames = function (accs) {
 createUsernames(accounts)
 console.log(accounts);
 
+// Event handler (Login implementation)
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  // Prevent form from submitting
+  e.preventDefault();
+
+  currentAccount = accounts.find((account) => account.userName === inputLoginUsername.value);
+
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Display UI and Welcome message
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+
+    containerApp.style.opacity = 100;
+
+    // Clear the input fileds
+    // Assignment operator right to left
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    // Display movements
+    displayMovements(currentAccount.movements)
+
+    // Display balance
+    calcDisplayBalance(currentAccount.movements)
+
+    // Display summary
+    console.log(currentAccount);
+    calcDisplaySummary(currentAccount)
+
+    console.log("Successfully Logged!!!");
+  }
+})
 
 
 /////////////////////////////////////////////////
@@ -316,6 +350,7 @@ console.log(totalDepositsUSD);
 */
 
 // find method
+/*
 const firstWithdrawal = movements.find((mov) => mov < 0);
 
 console.log(movements);
@@ -333,3 +368,5 @@ for (const ac of accounts) {
     console.log(ac);
   }
 }
+
+*/
