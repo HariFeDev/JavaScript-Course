@@ -52,3 +52,28 @@ console.log(b);
 b.forEach(function (v, i, m) {
   console.log(v, i, m);
 })
+
+// map()
+const temperatures = [20, 25, 30, 35];
+console.log(temperatures.map((temp) => {
+  return temp = temp * 9 / 5 + 32
+}))
+
+// filter()
+const transactions = [200, -100, 300, -50, 400];
+console.log(transactions.filter((debit) => debit < 0))
+
+// reduce()
+const bills = [100, 200, 300, 400];
+console.log(bills.reduce((acc, curr) => acc + curr, 0))
+
+// find()
+const users = [
+  { name: "Hari", age: 24 },
+  { name: "Arjun", age: 28 },
+  { name: "Ragnar", age: 30 }
+];
+
+console.log(users.find((user) => user.name === 'Arjun' && user.age === 28))
+
+
