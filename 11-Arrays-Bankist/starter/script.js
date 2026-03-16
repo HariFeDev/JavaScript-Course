@@ -98,9 +98,9 @@ console.log(accounts);
 */
 
 // Displaying the balance
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance}€`
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance}€`
 }
 
 
@@ -168,7 +168,7 @@ btnLogin.addEventListener('click', function (e) {
     displayMovements(currentAccount.movements)
 
     // Display balance
-    calcDisplayBalance(currentAccount.movements)
+    calcDisplayBalance(currentAccount)
 
     // Display summary
     console.log(currentAccount);
@@ -176,6 +176,16 @@ btnLogin.addEventListener('click', function (e) {
 
     console.log("Successfully Logged!!!");
   }
+})
+
+// Transfer Money
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find((acc) => acc.userName === inputTransferTo.value)
+
+  console.log(amount, receiverAcc);
 })
 
 
