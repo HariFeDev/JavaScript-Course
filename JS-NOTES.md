@@ -138,4 +138,7 @@ find -> retunrs a single element
 ## findIndex()
 
 - Return the index value of an element.
-- Example: const a = [1, 2, 3] - a.find((i) => i > 1) result: 2
+- Example: const a = [1, 2, 3];
+- a.find((i) => i > 1);
+
+result: 2

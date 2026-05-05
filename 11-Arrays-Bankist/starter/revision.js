@@ -77,3 +77,74 @@ const users = [
 console.log(users.find((user) => user.name === 'Arjun' && user.age === 28))
 
 
+// forEach()
+
+const arraY = [1, 2, 3, 4, 5];
+
+arraY.forEach(function (value, index, arr) {
+  console.log(value * 3);
+});
+
+const players = [
+  {
+    name: 'hari',
+    score: 13
+  },
+  {
+    name: 'jonas',
+    score: 23
+  }
+];
+
+const newPlayers = {};
+
+players.forEach(function (v, i, arr) {
+  console.log(v, i, arr);
+  newPlayers[`${v.name}`] = v.score;
+})
+
+console.log(newPlayers);
+
+// Map()
+
+// 1
+const nameArr = ['hello', 'world'];
+console.log(nameArr.map((word) => word.toUpperCase()));
+
+// 2
+
+const userS = [
+  {
+    name: 'Jonas',
+    age: 13,
+    friends: ['a', 'b', 'c']
+  },
+  {
+    name: 'Jessie',
+    age: 23,
+    friends: ['d', 'e', 'f']
+  },
+  {
+    name: 'steven',
+    age: 35,
+    friends: ['g', 'h', 'i']
+  },
+]
+console.log(userS);
+
+userS.map((value) => {
+  console.log(value);
+  value.popularityScore = value.friends.length * value.age;
+})
+
+console.log(userS);
+
+// Filter
+// 1
+const numbers = [3, 7, 2, 9, 1, 5];
+console.log(numbers.filter((num) => num > 4));
+
+// 2
+const ab = ['hari', 'sam', 'mom', 'pop'];
+
+console.log(ab.filter((v) => v.split('').reverse().join('') === v));
