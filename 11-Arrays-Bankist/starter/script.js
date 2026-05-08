@@ -205,6 +205,12 @@ btnTransfer.addEventListener('click', function (e) {
   }
 })
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+})
+
 // Close Account
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
@@ -422,3 +428,29 @@ for (const ac of accounts) {
 }
 
 */
+
+// The New findLast and findLastIndex Methods
+
+/*
+
+console.log(movements);
+const lastwithdrawal = movements.findLast(mov => mov < 0);
+console.log(lastwithdrawal);
+
+const latestLargeMovementIndex = movements.findLastIndex(mov => Math.abs(mov) > 2000);
+console.log(latestLargeMovementIndex);
+console.log(`Your latest large movement was ${movements.length - latestLargeMovementIndex - 1} movements ago`);
+
+*/
+
+// Some
+
+// Includes - for equality
+console.log(movements);
+console.log(movements.includes(-130));
+
+// some - for condition
+console.log(movements.some(mov => mov === -130));
+
+const anyDeposits = movements.some((mov) => mov > 0);
+console.log(anyDeposits);

@@ -142,3 +142,15 @@ find -> retunrs a single element
 - a.find((i) => i > 1);
 
 result: 2
+
+## findLast()
+
+- Return the last element that satisfies a condition
+
+## findLastIndex()
+
+- Return the index of the last matching element
+
+Difference:
+
+- searches from the right to left.
