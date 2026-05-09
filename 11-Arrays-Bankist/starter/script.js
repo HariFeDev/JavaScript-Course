@@ -209,6 +209,15 @@ btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
   const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some((mov) => mov >= amount / 10)) {
+    // Add movement
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  };
+  inputLoanAmount.value = '';
 })
 
 // Close Account
@@ -444,7 +453,7 @@ console.log(`Your latest large movement was ${movements.length - latestLargeMove
 */
 
 // Some
-
+/*
 // Includes - for equality
 console.log(movements);
 console.log(movements.includes(-130));
@@ -454,3 +463,43 @@ console.log(movements.some(mov => mov === -130));
 
 const anyDeposits = movements.some((mov) => mov > 0);
 console.log(anyDeposits);
+*/
+
+// Every
+/*
+console.log(movements.every((mov) => mov > 0));
+console.log(account4.movements.every((mov) => mov > 0));
+
+// Separate callback
+const deposit = (mov) => mov > 0;
+console.log(deposit);
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
+
+*/
+
+// Flat 
+/*
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat());
+console.log(arrDeep.flat(2));
+
+const accountMovements = accounts.map((acc) => acc.movements);
+console.log(accountMovements);
+console.log(accountMovements.flat());
+console.log(Math.abs(accountMovements.flat().reduce((acc, curr) => acc + curr), 0));
+
+const overallBalance = accounts.map((acc) => acc.movements).flat().reduce((acc, curr) => acc + curr, 0);
+console.log(overallBalance);
+
+// Flat Map
+
+const overallBalance2 = accounts.flatMap((acc) => acc.movements).reduce((acc, curr) => acc + curr, 0);
+console.log(overallBalance2);
+
+*/

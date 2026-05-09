@@ -92,3 +92,76 @@ const e = d.reduce((acc, curr) => {
   return acc + curr
 }, 0)
 console.log(e);
+
+// find,findIndex, findLast, findLastIndex
+const a8 = [1, 2, 3, -6, 58, 28];
+
+console.log(a8.find((v) => v > 2)); //3
+console.log(a8.findIndex((v) => v > 2)); //2
+console.log(a8.findLast((v) => v > 29)); //58
+console.log(a8.findLastIndex((v) => v < 0)); //3
+
+// Some
+// 1
+const odd = [4, 8, 13, 20, 7];
+console.log(odd.some((mov) => mov % 2 !== 0));
+
+// 2
+const carts = [
+  {
+    user: "Alice",
+    items: [
+      { name: "book", inStock: true },
+      { name: "pen", inStock: false }
+    ]
+  },
+  {
+    user: "Bob",
+    items: [
+      { name: "bag", inStock: true },
+      { name: "cup", inStock: true }
+    ]
+  },
+  {
+    user: "Carol",
+    items: [
+      { name: "lamp", inStock: false }
+    ]
+  }
+];
+const outOfStock = carts.some((i) => i.items.some((m) => m.inStock === false));
+
+console.log(outOfStock);
+
+// Every
+// 1
+const fruits = ["apple", "avocado", "apricot", "almond"];
+console.log(fruits.every((f) => f[0] === 'a'));
+
+// 2
+const teams = [
+  {
+    name: "Team A",
+    members: [
+      { name: "Alice", score: 80 },
+      { name: "Bob", score: 72 }
+    ]
+  },
+  {
+    name: "Team B",
+    members: [
+      { name: "Carol", score: 91 },
+      { name: "Dan", score: 65 }
+    ]
+  },
+  {
+    name: "Team C",
+    members: [
+      { name: "Eve", score: 88 },
+      { name: "Frank", score: 76 }
+    ]
+  }
+];
+
+console.log(teams.every((m) => m.members.every((m) => m.score > 70)));
+
