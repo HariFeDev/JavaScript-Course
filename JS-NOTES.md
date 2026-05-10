@@ -154,3 +154,27 @@ result: 2
 Difference:
 
 - searches from the right to left.
+
+## some()
+
+- It checks both condition and equality.
+- If any element satifies the condition it returns boolean value.
+
+## every()
+
+- Every element in the array should satifies the condition.
+- It returns boolean value.
+
+## filter() vs some() vs every()
+
+- filter -> It returns a new array that satifies the condtion.
+- some -> It returns boolean value if any one the element in the array that satifies the condtion.
+- every -> It returns boolean value every element in the array that satifies the condtion.
+
+## flat();
+
+- It joins the deeper level of nested array into single array.
+
+## flatMap();
+
+- It joins only the base level of the nested array into single array.

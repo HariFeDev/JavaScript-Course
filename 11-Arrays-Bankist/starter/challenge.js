@@ -60,3 +60,40 @@ const avg3 = calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]);
 const avg4 = calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]);
 
 console.log(avg3, avg4);
+
+// coding challenge #4
+const dogs = [
+  {
+    weight: 22,
+    curFood: 250,
+    owners: ['Alice', 'Bob']
+  },
+  {
+    weight: 8,
+    curFood: 200,
+    owners: ['Matilda']
+  },
+  {
+    weight: 13,
+    curFood: 275,
+    owners: ['Sarah', 'John']
+  },
+  {
+    weight: 32,
+    curFood: 340,
+    owners: ['Michael']
+  },
+];
+
+/*
+Find Sarah's dog and log to the console whether it's eating too much or too
+little. Hint: Some dogs have multiple owners, so you first need to find Sarah in
+the owners array, and so this one is a bit tricky (on purpose) �
+*/
+
+// 1
+dogs.map((dog) => dog.recFood = Math.round(dog.weight ** 0.75 * 28));
+console.log(dogs);
+
+// 2
+console.log(dogs.find((dogOwner) => dogOwner.owners.includes('Sarah')));
