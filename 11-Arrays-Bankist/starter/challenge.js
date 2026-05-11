@@ -86,9 +86,7 @@ const dogs = [
 ];
 
 /*
-Find Sarah's dog and log to the console whether it's eating too much or too
-little. Hint: Some dogs have multiple owners, so you first need to find Sarah in
-the owners array, and so this one is a bit tricky (on purpose) �
+
 */
 
 // 1
@@ -96,4 +94,47 @@ dogs.map((dog) => dog.recFood = Math.round(dog.weight ** 0.75 * 28));
 console.log(dogs);
 
 // 2
-console.log(dogs.find((dogOwner) => dogOwner.owners.includes('Sarah')));
+const SarahDog = dogs.find((dogOwner) => dogOwner.owners.includes('Sarah'));
+
+// To find Consuming of food
+const recFood = function (dogDetails) {
+  if (dogDetails.curFood > (dogDetails.recFood * 0.90) && dogDetails.curFood < (dogDetails.recFood * 1.10)) {
+    console.log(`It's Eating okay amount of food ✅`);
+
+  } else if (dogDetails.curFood > dogDetails.recFood) {
+    console.log(`It's Eating too much 📈`);
+
+  } else {
+    console.log(`It's Eating little 📉`);
+  }
+}
+
+recFood(SarahDog);
+
+// 3
+const ownersEatTooMuch = dogs.filter((dog) => dog.curFood > dog.recFood).map((name) => name.owners).flat();
+
+console.log(ownersEatTooMuch);
+
+const ownersEatTooLittle = dogs.filter((dog) => dog.curFood < dog.recFood).map((name) => name.owners).flat();
+
+console.log(ownersEatTooLittle);
+
+// 4
+console.log(ownersEatTooMuch.join(' and ') + `'s eats too much 📈`);
+console.log(ownersEatTooLittle.join(' and ') + `'s eats too much 📉`);
+
+// 5
+console.log(dogs.some((food) => food.curFood === food.recFood));
+
+// 6
+console.log(dogs.some((food) => food.curFood > (food.recFood * 0.90) && food.curFood < (food.recFood * 1.10)));
+
+// 7
+const okaydogs = dogs.filter((food) => food.curFood > (food.recFood * 0.90) && food.curFood < (food.recFood * 1.10));
+
+console.log(okaydogs);
+
+// 8
+const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+console.log(dogsSorted);
