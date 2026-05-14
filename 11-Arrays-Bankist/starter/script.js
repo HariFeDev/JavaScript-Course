@@ -503,3 +503,39 @@ const overallBalance2 = accounts.flatMap((acc) => acc.movements).reduce((acc, cu
 console.log(overallBalance2);
 
 */
+
+// sort
+
+// strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+
+// Numbers
+const numbers = [1, 2]
+console.log(movements);
+// console.log(movements.sort());
+
+// return < 0, A, B (Keep order)
+// return > 0, B, A (switch order)
+
+// Ascending
+movements.sort((a, b) => {
+  if (a > b) {
+    return 1;
+  }
+  if (a < b) {
+    return -1
+  }
+});
+console.log(movements);
+
+// Descending
+movements.sort((a, b) => {
+  if (a > b) {
+    return -1;
+  }
+  if (a < b) {
+    return 1
+  }
+});
+console.log(movements);

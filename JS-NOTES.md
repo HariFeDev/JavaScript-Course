@@ -177,4 +177,5 @@ Difference:
 
 ## flatMap();
 
+- It is combination of both map and flap method.
 - It joins only the base level of the nested array into single array.
