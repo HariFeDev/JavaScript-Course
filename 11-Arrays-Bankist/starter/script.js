@@ -61,10 +61,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     // console.log(i, mov);
     const type = mov > 0 ? 'deposit' : 'withdrawal'
 
@@ -243,6 +245,15 @@ btnClose.addEventListener('click', function (e) {
 
   // Reset fields
   inputCloseUsername.value = inputClosePin.value = '';
+})
+
+// Sort Balance
+let sorted = false;
+
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 })
 
 
@@ -506,36 +517,49 @@ console.log(overallBalance2);
 
 // sort
 
-// strings
+// sort in strings
 const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
-console.log(owners.sort());
+// console.log(owners.sort());
 
-// Numbers
-const numbers = [1, 2]
+owners.sort((a, b) => {
+  if (a > b) {
+    return 1;
+  } else if (a < b) {
+    return -1;
+  }
+})
+console.log(owners);
+
+// sort in Numbers
+// const numbers = [1, 2]
 console.log(movements);
 // console.log(movements.sort());
 
-// return < 0, A, B (Keep order)
-// return > 0, B, A (switch order)
+// return < 0, A, B (Keep order) -> return -1
+// return > 0, B, A (switch order) -> return 1 
 
 // Ascending
-movements.sort((a, b) => {
-  if (a > b) {
-    return 1;
-  }
-  if (a < b) {
-    return -1
-  }
-});
+// movements.sort((a, b) => {
+//   if (a > b) {
+//     return 1;
+//   }
+//   if (a < b) {
+//     return -1
+//   }
+// });
+
+movements.sort((a, b) => a - b)
 console.log(movements);
 
 // Descending
-movements.sort((a, b) => {
-  if (a > b) {
-    return -1;
-  }
-  if (a < b) {
-    return 1
-  }
-});
-console.log(movements);
+// movements.sort((a, b) => {
+//   if (a > b) {
+//     return -1;
+//   }
+//   if (a < b) {
+//     return 1
+//   }
+// });
+
+movements.sort((a, b) => b - a)
+console.log(movements); 

@@ -179,3 +179,21 @@ Difference:
 
 - It is combination of both map and flap method.
 - It joins only the base level of the nested array into single array.
+
+## sort()
+
+- Sorts an array and mutates the original array.
+
+- Strings:
+  - It sorts the string in the array alphabetically
+  - arr.sort()
+
+Numbers:
+
+- It consider number as string, so we are sorting using the below method.
+- Ascending -> arr.sort((a, b) => a - b)
+- Descending -> arr.sort((a, b) => b - a)
+
+- Rules:
+  - 0 -> keep order
+  - 0 -> switch order
