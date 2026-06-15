@@ -165,3 +165,46 @@ const teams = [
 
 console.log(teams.every((m) => m.members.every((m) => m.score > 70)));
 
+// Sort
+// 1
+const products = [
+  { name: "Pen", price: 20 },
+  { name: "Notebook", price: 50 },
+  { name: "Eraser", price: 20 },
+  { name: "Bag", price: 100 },
+  { name: "Marker", price: 50 },
+];
+
+products.sort((a, b) => {
+  if (a.price !== b.price) {
+    return b.price - a.price;
+  }
+
+  return a.name.localeCompare(b.name);
+})
+
+console.log(products);
+
+// 2
+const students = [
+  { name: "Charlie", score: 88, absences: 2 },
+  { name: "Alice", score: 95, absences: 1 },
+  { name: "Bob", score: 88, absences: 2 },
+  { name: "Diana", score: 95, absences: 3 },
+  { name: "Eve", score: 88, absences: 1 },
+];
+
+students.sort((a, b) => {
+
+  if (b.score !== a.score) {
+    return b.score - a.score
+  }
+
+  if (a.absences !== b.absences) {
+    return a.absences - b.absences
+  }
+
+  return a.name.localeCompare(b.name);
+})
+
+console.log(students);
