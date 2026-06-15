@@ -197,3 +197,23 @@ Numbers:
 - Rules:
   - 0 -> keep order
   - 0 -> switch order
+
+## Object.groupBy()
+
+- Groups elements of an array into an object.
+- The callback function decides which group each element belongs to.
+- The returned value from the callback becomes the object key.
+
+Example:
+
+const numbers = [1, 2, 3, 4, 5];
+
+const grouped = Object.groupBy(numbers, num =>
+num % 2 === 0 ? 'even' : 'odd'
+);
+
+Output:
+{
+odd: [1, 3, 5],
+even: [2, 4]
+}
