@@ -208,3 +208,80 @@ students.sort((a, b) => {
 })
 
 console.log(students);
+
+// Object.groupby()
+
+// 1
+const employees = [
+  { name: "Alice", department: "Engineering", salary: 90000 },
+  { name: "Bob", department: "Marketing", salary: 60000 },
+  { name: "Carol", department: "Engineering", salary: 95000 },
+  { name: "Dan", department: "HR", salary: 55000 },
+  { name: "Eve", department: "Marketing", salary: 70000 },
+  { name: "Frank", department: "HR", salary: 58000 },
+];
+
+console.log(employees);
+
+const department = Object.groupBy(employees, (dept) => {
+  return dept.department
+})
+
+console.log(department);
+
+// 2
+const orders = [
+  { id: 1, status: "delivered", amount: 250 },
+  { id: 2, status: "pending", amount: 40 },
+  { id: 3, status: "pending", amount: 150 },
+  { id: 4, status: "cancelled", amount: 90 },
+  { id: 5, status: "delivered", amount: 60 },
+  { id: 6, status: "pending", amount: 200 },
+];
+
+const statusOrder = Object.groupBy(orders, (product) => {
+  if (product.status === 'delivered') {
+    return 'completed';
+  }
+  if (product.status === 'pending' && product.amount > 100) {
+    return 'high-priority';
+  }
+  if (product.status === 'pending' && product.amount <= 100) {
+    return 'low-priority';
+  }
+  if (product.status === 'cancelled') {
+    return 'cancelled'
+  }
+})
+
+console.log(statusOrder);
+
+// fill()
+
+// 1
+const scores = [80, 90, 30, 45, 20, 55, 70];
+scores.fill(0, 2, 5);
+console.log(scores);
+
+// 2
+const seats = new Array(8).fill('open')
+seats.fill('reserved', 0, 3);
+seats.fill('reserved', 5, 8);
+console.log(seats);
+
+// Array.from()
+
+// 1
+const str = 'javascript';
+const strArr = [...str]
+console.log(strArr);
+console.log([...new Set(strArr)]);
+
+// const arrs = [1, 2, 2, 3, 4, 4, 5];
+
+// const unique = arrs.filter((value, index, array) => {
+//   console.log(value, index, array);
+//   return array.indexOf(value) === index;
+// });
+
+// console.log(unique);

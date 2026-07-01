@@ -217,3 +217,25 @@ Output:
 odd: [1, 3, 5],
 even: [2, 4]
 }
+
+## fill()
+
+- Fills an array with a specified value.
+- Modifies the original array.
+- We can define where to start and end index.
+
+Example:
+
+new Array(5).fill(3);
+output: [3, 3, 3, 3, 3]
+
+## Array.from()
+
+- Mainly we will used for convert a NodeList to an Array.
+- Creates a new array from an iterable or array-like object.
+- Can use a callback to generate or transform values.
+
+Example:
+
+Array.from({ length: 5}, (\_, i) => i + 1);
+output: [1, 2, 3, 4, 5]
