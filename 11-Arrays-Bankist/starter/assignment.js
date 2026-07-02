@@ -273,15 +273,20 @@ console.log(seats);
 
 // 1
 const str = 'javascript';
-const strArr = [...str]
-console.log(strArr);
-console.log([...new Set(strArr)]);
+const unique = Array.from(new Set(str));
+console.log(unique);
 
-// const arrs = [1, 2, 2, 3, 4, 4, 5];
+// 2
+const n = 5;
 
-// const unique = arrs.filter((value, index, array) => {
-//   console.log(value, index, array);
-//   return array.indexOf(value) === index;
-// });
+const mul = Array.from({ length: 10 }, (_, i) => {
+  // console.log(n, i + 1);
+  return n * (i + 1);
+});
+console.log(mul);
 
-// console.log(unique);
+// 3
+const table = Array.from({ length: 3 }, (_, i) =>
+  Array.from({ length: 3 }, (_, j) => (i + 1) * (j + 1))
+);
+console.log(table);
