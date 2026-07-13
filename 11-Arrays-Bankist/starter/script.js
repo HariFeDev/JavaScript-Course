@@ -612,6 +612,7 @@ console.log(groupedAccounts);
 */
 
 // More ways of creating and filling arrays
+/*
 const arr = [1, 2, 3, 4, 5, 6];
 console.log(new Array(1, 2, 3, 4, 5, 6));
 
@@ -645,3 +646,56 @@ labelBalance.addEventListener('click', function () {
   const movementsUI2 = [...document.querySelectorAll('.movements__value')];
   console.log(movementsUI2);
 })
+*/
+
+
+// Non - Destructive: toReversed, toSorted, toSpliced, with
+// This will not mutate the orginal array
+
+// toReversed (reverse)
+console.log(movements);
+const reverseMov = movements.toReversed();
+console.log(reverseMov);
+console.log(movements);
+
+// toSorted (sort) 
+// Numbers -> Ascending Order
+const numbers = [5, 7, 32, 10, 24];
+const ascendingSorted = numbers.toSorted((a, b) => a - b);
+console.log(ascendingSorted);
+
+// Numbers -> Descending Order
+const descendingSorted = numbers.toSorted((a, b) => b - a);
+console.log(descendingSorted);
+// console.log(numbers);
+
+// Strings -> Ascending order
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+const sortedOwnersAscending = owners.toSorted();
+const sortedOwnersDescending = owners.toSorted((a, b) => b.localeCompare(a));
+
+console.log(sortedOwnersAscending);
+console.log(sortedOwnersDescending);
+
+// Objects
+const products = [
+  { name: 'Shirt', price: 1200 },
+  { name: 'Jeans', price: 1800 },
+  { name: 'Top', price: 900 }
+];
+
+const sortedByPrice = products.toSorted((a, b) => a.price - b.price);
+console.log(products);
+console.log(sortedByPrice);
+
+// tospliced (splice)
+const ages = [30, 40, 50, 60, 70, 80, 90, 100];
+const agelessThanSixty = ages.toSpliced(3, ages.length - 1);
+console.log(agelessThanSixty);
+
+
+// movements[1] = 2000;
+const newMovements = movements.with(1, 2000);
+console.log(newMovements);
+
+console.log(movements);

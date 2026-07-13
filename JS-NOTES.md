@@ -195,8 +195,8 @@ Numbers:
 - Descending -> arr.sort((a, b) => b - a)
 
 - Rules:
-  - 0 -> keep order
-  - 0 -> switch order
+  - Greater than 0 -> keep order
+  - Less than 0 -> switch order
 
 ## Object.groupBy()
 
@@ -239,3 +239,35 @@ Example:
 
 Array.from({ length: 5}, (\_, i) => i + 1);
 output: [1, 2, 3, 4, 5]
+
+## toReversed()
+
+- Reverse the element in the array.
+- Does not mutate the orginal array.
+
+## toSorted()
+
+- Returns a new sorted array.
+- Does NOT modify the original array.
+
+Numbers:
+
+- Ascending -> arr.toSorted((a, b) => a - b)
+- Descending -> arr.toSorted((a, b) => b - a)
+
+Strings:
+
+- Ascending -> arr.toSorted()
+- Descending -> arr.toSorted((a, b) => b.localeCompare(a));
+
+## localeCompare()
+
+- Compares two strings alphabetically.
+- Returns:
+  - Negative -> first string comes before second string.
+  - 0 -> Both strings are equal.
+  - Positive -> first string comes after second string.
+
+- Ascending -> arr.sort((a, b) => a.localeCompare(b))
+
+- Descending -> arr.sort((a, b) => b.localeCompare(a))
