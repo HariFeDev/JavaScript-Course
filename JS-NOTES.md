@@ -271,3 +271,21 @@ Strings:
 - Ascending -> arr.sort((a, b) => a.localeCompare(b))
 
 - Descending -> arr.sort((a, b) => b.localeCompare(a))
+
+## with()
+
+- Returns a new array with the element at the specified index replaced.
+- Does NOT mutate the original array.
+
+Syntax:
+array.with(index, value)
+
+Example:
+
+const arr = [1, 2, 3, 4];
+
+const newArr = arr.with(1, 50);
+
+Output:
+newArr -> [1, 50, 3, 4]
+arr -> [1, 2, 3, 4]
