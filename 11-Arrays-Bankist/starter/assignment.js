@@ -290,3 +290,44 @@ const table = Array.from({ length: 3 }, (_, i) =>
   Array.from({ length: 3 }, (_, j) => (i + 1) * (j + 1))
 );
 console.log(table);
+
+// Array Method overall
+const studentsRecord = [
+  { name: 'Hari', marks: 90, department: 'CSE' },
+  { name: 'John', marks: 45, department: 'ECE' },
+  { name: 'Alice', marks: 80, department: 'CSE' },
+  { name: 'Bob', marks: 30, department: 'EEE' },
+  { name: 'Sam', marks: 70, department: 'ECE' },
+];
+
+// filter
+const passedStudent = studentsRecord.filter((student) => student.marks >= 35);
+console.log(passedStudent);
+
+// map
+const studentNames = studentsRecord.map((student) => student.name)
+console.log(studentNames);
+
+// reduce
+const averageMark = studentsRecord.reduce((acc, cur, i, arr) => acc + cur.marks / arr.length, 0);
+console.log(averageMark);
+
+// find
+const findHari = studentsRecord.find((student) => student.name === 'Hari');
+console.log(findHari);
+
+// some
+const checkfailedStudents = studentsRecord.some((student) => student.marks <= 30);
+console.log(checkfailedStudents);
+
+// Every
+const checkPassedStudents = studentsRecord.every((student) => student.marks >= 35);
+console.log(checkPassedStudents);
+
+// Object.groupBy
+const groupByDepartment = Object.groupBy(studentsRecord, (student) => student.department);
+console.log(groupByDepartment);
+
+// toSorted
+const sortByMark = studentsRecord.toSorted((a, b) => a.marks - b.marks);
+console.log(sortByMark);
