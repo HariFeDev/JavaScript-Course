@@ -1,4 +1,4 @@
-### A Closer Look at Functions
+# A Closer Look at Functions
 
 ## call()
 
@@ -40,7 +40,7 @@ greet.call(person, ...array)
 
 Example: counter functions, callbacks
 
-### Working With Arrays
+# Working With Arrays
 
 ## slice ()
 
@@ -289,3 +289,93 @@ const newArr = arr.with(1, 50);
 Output:
 newArr -> [1, 50, 3, 4]
 arr -> [1, 2, 3, 4]
+
+# Numbers, Dates, Intl and Timers
+
+## Integer vs Number
+
+- Number is JavaScript numeric data type.
+- Integer is a whole number without a decimal part.
+- All integers are numbers, but not all numbers are integers.
+
+Examples:
+
+- 10 -> number + integer
+- 10.5 -> number, not integer
+- -5 -> number + integer
+
+## Binary
+
+- Binary is a number system with base 2.
+- toString(2) returns binary number as a string.
+- parseInt(value, 2) returns binary string as a number.
+
+Examples:
+(5).toString(2) // "101"
+parseInt("101", 2) // 5
+0b101 // 5
+
+## parseInt()
+
+- It converts value/string into an integer.
+- The second argument specifies the number base (radix).
+- Can also specify the number base using the second argument.
+
+Example:
+parseInt('25.8') // 25
+parseInt('101', 2) // 5
+
+## parseFloat()
+
+- It converts string into floating-point number
+- It keeps the decimal part
+- It does not use a radix argument.
+
+Example:
+parseFloat('10.5') // 10.5
+
+## isNaN()
+
+- Checks whether a value is speacial NaN value.
+- Returns true or false
+
+Example:
+Number.isNaN(NaN) // true
+Number.isNaN(10) // false
+
+## Number.isFinite()
+
+- Checks whether a value is a finite number.
+- Returns true or false.
+- Infinity and -Infinity return false
+
+Example:
+Number.isFinite(100) // true
+Number.isFinite(Infinity) // false
+
+## Math.trunc()
+
+- Math.trunc() removes the decimal part.
+- Does not round the number.
+
+compare:
+Math.trunc(5.8); // 5
+Math.floor(5.8); // 5
+Math.ceil(5.8); // 6
+Math.round(5.8); // 6
+
+Difference:
+Math.trunc(-5.8); // -5
+Math.floor(-5.8); // -6
+
+Example:
+Math.trunc(5.8) // 5
+Math.trunc(-5.8) // -5
+
+## Math.PI
+
+- Returns the mathematical constant π.
+- Useful for calculations involving circles.
+
+Example:
+const area = Math.PI \* radius \*\* 2;
