@@ -410,3 +410,32 @@ console.log(parseInt('230_000'));
 console.log(2 ** 53 - 1);
 console.log(Number.MAX_SAFE_INTEGER);
 console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+console.log(4513461646466461646046454554668989n);
+console.log(BigInt(451346164646));
+
+// Operation
+console.log(10000n + 10000n);
+console.log(25641656445165884515155146584545465465465n * 1000000000000000441664n);
+// console.log(Math.sqrt(16n));
+const huge = 12545466464646464646464646448444n
+const num = 1234567
+// console.log(huge * num);
+console.log(huge * BigInt(num));
+
+// Exception
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == 20);
+
+console.log(huge + ' is REALLY big!!!');
+
+// Division
+console.log(10n / 3n);
+console.log(11n / 3n);
+console.log(12n / 3n);
+console.log(10 / 3);
