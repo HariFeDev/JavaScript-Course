@@ -154,6 +154,21 @@ const updateUI = function (acc) {
 // Event handlers
 let currentAccount;
 
+// FAKE ALWAYS LOGGED IN
+currentAccount = account1;
+updateUI(currentAccount)
+containerApp.style.opacity = 100;
+
+const now = new Date();
+console.log(now);
+const day = now.getDate();
+const month = `${now.getMonth() + 1}`.padStart(2, 0);
+const year = now.getFullYear();
+const hour = now.getHours();
+const min = now.getMinutes();
+
+labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
+
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -407,6 +422,7 @@ console.log(parseInt('230_000'));
 */
 
 // Working with BigInt
+/*
 console.log(2 ** 53 - 1);
 console.log(Number.MAX_SAFE_INTEGER);
 console.log(2 ** 53 + 1);
@@ -439,3 +455,44 @@ console.log(10n / 3n);
 console.log(11n / 3n);
 console.log(12n / 3n);
 console.log(10 / 3);
+*/
+
+// Creating Dates
+/*
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Fri Sep 11 2026 09:30:01'));
+console.log(new Date('December 25, 2030'));
+console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(2037, 9, 13, 12, 0, 0));
+console.log(new Date(2037, 10, 33));
+
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+*/
+
+// Working with dates
+/*
+const future = new Date(2037, 9, 13, 12, 0, 0);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+
+console.log(new Date(2139028200000));
+
+// current timestamp
+console.log(Date.now());
+console.log(new Date(Date.now()));
+
+future.setFullYear(2040);
+console.log(future);
+*/
