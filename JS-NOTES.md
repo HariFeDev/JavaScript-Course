@@ -379,3 +379,80 @@ Math.trunc(-5.8) // -5
 
 Example:
 const area = Math.PI \* radius \*\* 2;
+
+## Math.log10()
+
+Math.log10(x) returns the logarithm of x with base 10.
+
+It tells us which power of 10 is related to the number.
+
+Math.log10(1000); // 3 → 10³ = 1000
+Math.log10(10000); // 4 → 10⁴ = 10000
+
+### Count digits of a positive integer
+
+Math.floor(Math.log10(num)) + 1
+
+Example:
+Math.floor(Math.log10(94823)) + 1
+// 5
+
+## setTimeout()
+
+- Executes a function **once** after the specified delay.
+- Syntax:
+  setTimeout(function, delay);
+
+Example:
+setTimeout(() => {
+console.log('Hello');
+}, 2000);
+
+➡️ The function runs once after approximately 2 seconds.
+
+## setInterval()
+
+- Executes a function **repeatedly** at the specified time interval.
+- The first execution happens after the specified delay.
+- Then it executes again after each interval.
+
+Syntax:
+setInterval(function, interval);
+
+Example:
+setInterval(() => {
+console.log('Hello');
+}, 2000);
+
+➡️ Runs after 2 seconds
+➡️ Runs again after another 2 seconds
+➡️ Runs again after another 2 seconds
+➡️ Continues until stopped with clearInterval()
+
+## clearTimeout()
+
+- Cancels a `setTimeout()` that has been scheduled.
+- We pass the timer ID returned by `setTimeout()`.
+
+Example:
+const timer = setTimeout(() => {
+console.log('Hello');
+}, 3000);
+
+clearTimeout(timer);
+
+➡️ The function will NOT execute.
+
+## clearInterval()
+
+- Stops a `setInterval()` from executing again.
+- We pass the interval ID returned by `setInterval()`.
+
+Example:
+const timer = setInterval(() => {
+console.log('Hello');
+}, 1000);
+
+clearInterval(timer);
+
+➡️ The interval stops.

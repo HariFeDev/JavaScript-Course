@@ -385,7 +385,7 @@ btnSort.addEventListener('click', function (e) {
 // LECTURES
 
 // Converting and Checking Numbers
-/*
+
 console.log(23 === 23.0);
 
 // Base 10 = 0 - 9
@@ -427,7 +427,6 @@ console.log(Number.isFinite(+'20x'));
 console.log(Number.isInteger(23));
 console.log(Number.isInteger(23.0));
 console.log(Number.isInteger(23 / 0));
-*/
 
 // Math and Rounding
 /*
