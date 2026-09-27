@@ -456,3 +456,42 @@ console.log('Hello');
 clearInterval(timer);
 
 ➡️ The interval stops.
+
+# Advance DOM
+
+## Event Propogation
+
+- The journey of an event through the DOM.
+- Capturing -> Target -> Bubbling
+
+## Event Capturing
+
+- Capturing event from DOM to target
+- Parent
+  ↓
+  Child
+  ↓
+  Button (target)
+
+## Event Bubbling
+
+- Event travels from target to DOM
+- Button (target)
+  ↑
+  Child
+  ↑
+  Parent
+
+### Easy to remember
+
+Capturing = Outside → Inside
+Target = Clicked element
+Bubbling = Inside → Outside
+
+## Event Delegation
+
+- Attaching one event listener to parent instead of adding listener to each child.
+- To avoid more event listeners
+- Better for many elements
+- Works well for dynamically created elements
+- Parent listens for events from its children using event bubbling
