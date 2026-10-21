@@ -487,3 +487,10 @@ Bubbling = Inside → Outside
 - Better for many elements
 - Works well for dynamically created elements
 - Parent listens for events from its children using event bubbling
+
+## Closest Method
+
+- closest() searches upward through the DOM.
+- It checks the element itself first, then its ancestors.
+- It returns the nearest matching element or null if no match exists.
+- It accepts a CSS selector.
