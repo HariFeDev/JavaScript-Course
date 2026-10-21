@@ -467,20 +467,12 @@ clearInterval(timer);
 ## Event Capturing
 
 - Capturing event from DOM to target
-- Parent
-  ↓
-  Child
-  ↓
-  Button (target)
+- Parent -> child -> Button (target)
 
 ## Event Bubbling
 
 - Event travels from target to DOM
-- Button (target)
-  ↑
-  Child
-  ↑
-  Parent
+- Button (target) -> Child -> Parent
 
 ### Easy to remember
 
