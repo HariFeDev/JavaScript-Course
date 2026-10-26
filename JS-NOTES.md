@@ -32,6 +32,8 @@ greet.call(person, ...array)
 - To set default parameters like partial application
 - Once we fixed `this` in bind() we cannot change that using call()
 
+- Syntax: function.bind(thisArg, arg1, arg2, ...);
+
 ## Closure
 
 - Function remembers outer scope variables
@@ -494,3 +496,37 @@ Bubbling = Inside → Outside
 - It checks the element itself first, then its ancestors.
 - It returns the nearest matching element or null if no match exists.
 - It accepts a CSS selector.
+
+## IntersectionObserver
+
+Purpose:
+Detect when an element intersects the viewport or another root.
+
+Basic syntax:
+const observer = new IntersectionObserver(callback, options);
+observer.observe(element);
+
+Main options:
+
+- root: null means viewport.
+- threshold: intersection ratios to observe.
+- rootMargin: expands or shrinks the observation area.
+
+Useful entry properties:
+
+- entry.target
+- entry.isIntersecting
+- entry.intersectionRatio
+
+Common uses:
+
+- Reveal sections on scroll.
+- Lazy load images.
+- Trigger infinite scrolling.
+- Activate navigation effects.
+
+Methods:
+
+- observe(element)
+- unobserve(element)
+- disconnect()
