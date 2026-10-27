@@ -499,6 +499,10 @@ Bubbling = Inside → Outside
 
 ## IntersectionObserver
 
+- The callback function is called when the target element intersect the root element(viewport) at the mentioned threshold ratio.
+
+- The callback is also called for the initial observation after observer.observe(target) even if the target isn't intersecting.
+
 Purpose:
 Detect when an element intersects the viewport or another root.
 
