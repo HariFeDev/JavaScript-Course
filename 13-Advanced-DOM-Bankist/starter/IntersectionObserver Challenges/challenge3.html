@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Challenge 3 - Lazy Loading</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:sans-serif;background:#111;padding:2rem}
+.gallery{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:60vh}
+.gallery img{width:100%;height:400px;object-fit:cover;border-radius:10px}
+img.lazy-img{filter:blur(20px);transition:filter .6s}
+</style></head><body>
+<!-- placeholder = tiny 1x1 gray gif -->
+<div class="gallery">
+<img class="lazy-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://picsum.photos/id/10/800/500" alt="img 1">
+<img class="lazy-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://picsum.photos/id/20/800/500" alt="img 2">
+<img class="lazy-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://picsum.photos/id/30/800/500" alt="img 3">
+<img class="lazy-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://picsum.photos/id/40/800/500" alt="img 4">
+<img class="lazy-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://picsum.photos/id/50/800/500" alt="img 5">
+<img class="lazy-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://picsum.photos/id/60/800/500" alt="img 6">
+<img class="lazy-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://picsum.photos/id/70/800/500" alt="img 7">
+<img class="lazy-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://picsum.photos/id/80/800/500" alt="img 8">
+</div>
+<script src="challenge3.js"></script></body></html>

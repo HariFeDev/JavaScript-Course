@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Challenge 2 - Sticky Navbar</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        font-family: sans-serif;
+      }
+      .nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        color: #fff;
+        z-index: 10;
+        transition: background 0.3s;
+      }
+      .nav ul {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
+      .nav a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .nav.sticky {
+        position: fixed;
+        background: #222;
+      }
+      .hero {
+        height: 100vh;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+      }
+      .content {
+        padding: 3rem 2rem;
+        max-width: 700px;
+        margin: auto;
+      }
+      .content p {
+        height: 200px;
+        margin-bottom: 2rem;
+        background: #eee;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <h2>Logo</h2>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <header class="hero">Hero Section</header>
+    <main class="content">
+      <p>Content 1</p>
+      <p>Content 2</p>
+      <p>Content 3</p>
+      <p>Content 4</p>
+      <p>Content 5</p>
+      <p>Content 6</p>
+      <p>Content 7</p>
+    </main>
+    <script src="challenge2.js"></script>
+  </body>
+</html>
